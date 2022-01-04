@@ -22899,20 +22899,47 @@ var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 class MainView extends _reactDefault.default.Component {
+    // the place to initialize a state’s values
+    constructor(){
+        //initializes your component’s state
+        super();
+        this.state = {
+            movies: [
+                {
+                    _id: 1,
+                    Title: 'Inception',
+                    Description: 'desc1...',
+                    ImagePath: '...'
+                },
+                {
+                    _id: 2,
+                    Title: 'The Shawshank Redeption',
+                    Description: 'desc2...',
+                    ImagePath: '...'
+                },
+                {
+                    _id: 3,
+                    Title: 'Gladiator',
+                    Description: 'desc3...',
+                    ImagePath: '...'
+                }
+            ]
+        };
+    }
     //returns the visual representation of the component
     render() {
         return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 10
+                lineNumber: 21
             },
             __self: this,
             children: [
                 /*#__PURE__*/ _jsxRuntime.jsx("div", {
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 11
+                        lineNumber: 22
                     },
                     __self: this,
                     children: "Inception"
@@ -22920,7 +22947,7 @@ class MainView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsx("div", {
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 12
+                        lineNumber: 23
                     },
                     __self: this,
                     children: "The Shawshank Redemption"
@@ -22928,7 +22955,7 @@ class MainView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsx("div", {
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 13
+                        lineNumber: 24
                     },
                     __self: this,
                     children: "Gladiator"
