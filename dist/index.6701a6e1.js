@@ -22890,6 +22890,8 @@ $parcel$ReactRefreshHelpers$35bf.prelude(module);
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MovieCard", ()=>MovieCard
+);
 //template or blueprint for creating new components
 //export exposes the MainView component
 parcelHelpers.export(exports, "MainView", ()=>MainView
@@ -22898,6 +22900,19 @@ var _jsxRuntime = require("react/jsx-runtime");
 //imports React into the file and allows you to create new instances
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+class MovieCard extends _reactDefault.default.Component {
+    render() {
+        return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+            className: "movie-card",
+            __source: {
+                fileName: "src/components/main-view/main-view.jsx",
+                lineNumber: 6
+            },
+            __self: this,
+            children: "some title"
+        }));
+    }
+}
 class MainView extends _reactDefault.default.Component {
     // the place to initialize a state’s values
     constructor(){
@@ -22926,41 +22941,44 @@ class MainView extends _reactDefault.default.Component {
             ]
         };
     }
-    //returns the visual representation of the component
+    // 	//returns the visual representation of the component
+    //   render() {
+    //     return (
+    //       <div className="main-view">
+    //         <div>Inception</div>
+    //         <div>The Shawshank Redemption</div>
+    //         <div>Gladiator</div>
+    //       </div>
+    //     );
+    //   }
+    // }
     render() {
-        return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
+        const { movies  } = this.state;
+        if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 21
+                lineNumber: 39
             },
             __self: this,
-            children: [
-                /*#__PURE__*/ _jsxRuntime.jsx("div", {
+            children: "The list is empty!"
+        }));
+        return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+            className: "main-view",
+            __source: {
+                fileName: "src/components/main-view/main-view.jsx",
+                lineNumber: 42
+            },
+            __self: this,
+            children: movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx("div", {
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 22
+                        lineNumber: 43
                     },
                     __self: this,
-                    children: "Inception"
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsx("div", {
-                    __source: {
-                        fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 23
-                    },
-                    __self: this,
-                    children: "The Shawshank Redemption"
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsx("div", {
-                    __source: {
-                        fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 24
-                    },
-                    __self: this,
-                    children: "Gladiator"
-                })
-            ]
+                    children: movie.Title
+                }, movie._id)
+            )
         }));
     }
 }

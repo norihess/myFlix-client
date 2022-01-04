@@ -42,7 +42,8 @@ render() {
     <div className="main-view">
       {movies.map(movie => <div key={movie._id}>{movie.Title}</div>)}
     </div>
-  );
+  	);
+	}
 }
 
 export default MainView;
