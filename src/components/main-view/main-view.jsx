@@ -1,12 +1,6 @@
 //imports React into the file and allows you to create new instances
 import React from 'react';
 
-export class MovieCard extends React.Component {
-  render() {
-    return <div className="movie-card">some title</div>;
-  }
-}
-
 //template or blueprint for creating new components
 //export exposes the MainView component
 export class MainView extends React.Component {
@@ -43,7 +37,8 @@ render() {
       {movies.map(movie => <div key={movie._id}>{movie.Title}</div>)}
     </div>
   	);
-	}
+	}	
 }
+
 
 export default MainView;
