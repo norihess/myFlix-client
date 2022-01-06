@@ -10,7 +10,7 @@ export class MainView extends React.Component{
       selectedMovie: null
     };
   }
-}
+
 render() {
   const { movies, selectedMovie } = this.state;
 
@@ -25,6 +25,7 @@ render() {
     </div>
   	);
 	}
+}
 
 
 
