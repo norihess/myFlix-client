@@ -1,5 +1,8 @@
 //imports React into the file and allows you to create new instances
 import React from 'react';
+import { MovieView } from '../movie-view/movie-view';
+import MainView from './components/main-view/main-view';
+import MovieCard from './components/movie-card/movie-card';
 
 //template or blueprint for creating new components
 //export exposes the MainView component
@@ -28,17 +31,32 @@ export class MainView extends React.Component {
 //   }
 // }
 render() {
-  const { movies } = this.state;
+  const { movies, selectedMovie } = this.state;
+
+  if (selectedMovie) return <MovieView movie={selectedMovie} />;
 
   if (movies.length === 0) return <div className="main-view">The list is empty!</div>;
 
   return (
     <div className="main-view">
-      {movies.map(movie => <div key={movie._id}>{movie.Title}</div>)}
+      <button onClick={() => {alert('Nice!')}}>Click me!</button>
+      {movies.map(movie => 
+				<MovieCard key={movie._id} 
+					movie={movie} onClick={() => { 
+						this.state.selectedMovie = movie; }} 
+						/>)}
     </div>
   	);
-	}	
+	}
 }
-
+export class MainView extends React.Component{
+  constructor() {
+    super();
+    this.state = {
+      movies: [],
+      selectedMovie: null
+    };
+  }
+}
 
 export default MainView;
