@@ -5,5 +5,5 @@ export class MovieCard extends React.Component {
     const { movie } = this.props;
     return <div className="movie-card" >{movie.Title}</div>;
   }
-}
+} 
 
