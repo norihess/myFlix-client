@@ -27,3 +27,5 @@ render() {
 
 
 export default MainView;
+export default MovieCard;
+export default MovieView;
