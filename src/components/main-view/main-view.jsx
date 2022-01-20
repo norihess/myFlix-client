@@ -4,8 +4,6 @@ import axios from 'axios';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 
-let ImagePath = './img/';
-
 export class MainView extends React.Component{
   constructor() {
     super();
