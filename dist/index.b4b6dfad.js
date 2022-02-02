@@ -22806,7 +22806,7 @@ class MainView extends _reactDefault.default.Component {
             register: false
         };
     }
-    componentDidMoumt() {
+    componentDidMount() {
         _axiosDefault.default.get('https://nori-myflixdb.herokuapp.com/movies').then((response)=>{
             this.setState({
                 movies: response.data
