@@ -13,7 +13,8 @@ export class MainView extends React.Component{
     this.state = {
       movies: [],
       selectedMovie: null,
-      user: null
+      user: null,
+      register: false
     };
   }
 
@@ -39,7 +40,7 @@ export class MainView extends React.Component{
       user
     });
   }
-  onRegistration(register){
+  onRegistration(user){
     axios.post('https://nori-myflixdb.herokuapp.com/users')
     .then(response => {
       this.setState({
@@ -52,13 +53,13 @@ export class MainView extends React.Component{
   }
 
 	render() {
-    const { movies, selectedMovie, user } = this.state;
+    const { movies, selectedMovie, user, register} = this.state;
 
     if (!register) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)}/>);
 
     else if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
     
-    // if (movies.length === 0) return <div className="main-view"/>;
+    else if (movies.length === 0) return <div className="main-view"/>;
 
     return (
       <div className="main-view">

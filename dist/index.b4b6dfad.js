@@ -22802,7 +22802,8 @@ class MainView extends _reactDefault.default.Component {
         this.state = {
             movies: [],
             selectedMovie: null,
-            user: null
+            user: null,
+            register: false
         };
     }
     componentDidMoumt() {
@@ -22824,7 +22825,7 @@ class MainView extends _reactDefault.default.Component {
             user
         });
     }
-    onRegistration(register) {
+    onRegistration(user) {
         _axiosDefault.default.post('https://nori-myflixdb.herokuapp.com/users').then((response)=>{
             this.setState({
                 token: response.data.token
@@ -22834,22 +22835,28 @@ class MainView extends _reactDefault.default.Component {
         });
     }
     render() {
-        const { movies , selectedMovie , user: user1  } = this.state;
-        if (!register) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_registrationView.RegistrationView, {
+        const { movies , selectedMovie , user: user1 , register: register1  } = this.state;
+        if (!register1) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_registrationView.RegistrationView, {
             onRegistration: (register)=>this.onRegistration(register)
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 57,
+            lineNumber: 58,
             columnNumber: 28
         }, this));
         else if (!user1) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_loginView.LoginView, {
             onLoggedIn: (user)=>this.onLoggedIn(user)
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 59,
+            lineNumber: 60,
             columnNumber: 28
         }, this));
-        // if (movies.length === 0) return <div className="main-view"/>;
+        else if (movies.length === 0) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+            className: "main-view"
+        }, void 0, false, {
+            fileName: "src/components/main-view/main-view.jsx",
+            lineNumber: 62,
+            columnNumber: 42
+        }, this));
         return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
             className: "main-view",
             children: selectedMovie ? /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieView.MovieView, {
@@ -22859,7 +22866,7 @@ class MainView extends _reactDefault.default.Component {
                 }
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 66,
+                lineNumber: 67,
                 columnNumber: 13
             }, this) : movies.map((movie1)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieCard.MovieCard, {
                     movie: movie1,
@@ -22868,13 +22875,13 @@ class MainView extends _reactDefault.default.Component {
                     }
                 }, movie1._id, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 69,
+                    lineNumber: 70,
                     columnNumber: 13
                 }, this)
             )
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 64,
+            lineNumber: 65,
             columnNumber: 7
         }, this));
     }
@@ -24467,8 +24474,8 @@ var _registrationViewScss = require("./registration-view.scss");
 var _s = $RefreshSig$();
 function RegistrationView(props) {
     _s();
-    const [username, setUsername] = _react.useState('');
-    const [password, setPassword] = _react.useState('');
+    const [Username, setUsername] = _react.useState('');
+    const [Password, setPassword] = _react.useState('');
     const [Email, setEmail] = _react.useState('');
     const [Birthday, setBirthday] = _react.useState('');
     const handleSubmit = (e)=>{
@@ -24540,11 +24547,11 @@ function RegistrationView(props) {
             }, this),
             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("label", {
                 children: [
-                    "Password:",
+                    "Email:",
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV("input", {
-                        type: "Eamil",
-                        value: Eamil,
-                        onChange: (e)=>setEamil(e.target.value)
+                        type: "Email",
+                        value: Email,
+                        onChange: (e)=>setEmail(e.target.value)
                     }, void 0, false, {
                         fileName: "src/components/registration-view/registration-view.jsx",
                         lineNumber: 34,
@@ -24570,7 +24577,7 @@ function RegistrationView(props) {
             }, this),
             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("label", {
                 children: [
-                    "Password:",
+                    "Birthday:",
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV("input", {
                         type: "Birthday",
                         value: Birthday,
@@ -24614,7 +24621,7 @@ function RegistrationView(props) {
         columnNumber: 5
     }, this));
 }
-_s(RegistrationView, "iWxmzLZr7dPtn9u2Cag4zHt168M=");
+_s(RegistrationView, "1J/7PM2xYpPu51MjHs4PkVJAedc=");
 _c = RegistrationView;
 RegistrationView.propTypes = {
     onRegistration: _propTypesDefault.default.func.isRequired
