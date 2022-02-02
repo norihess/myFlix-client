@@ -41,7 +41,6 @@ export function RegistrationView(props) {
       <br/><br/>
       <button type="submit" onClick={handleSubmit}>Register</button>
       {/* <button type="button" onClick={()=>window.location.replace("/login")}>login</button> */}
-
     </form>
   );
 }
@@ -51,7 +50,7 @@ RegistrationView.propTypes = {
     Username: PropTypes.string.isRequired,
     Password: PropTypes.string.isRequired,
     Email: PropTypes.string.isRequired,
-    Birthday: PropTypes.Birthday.isRequired
+    Birthday: PropTypes.string.isRequired
   }),
   onRegistration: PropTypes.func.isRequired,
 };
