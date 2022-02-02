@@ -39,13 +39,24 @@ export class MainView extends React.Component{
       user
     });
   }
+  onRegistration(register){
+    axios.post('https://nori-myflixdb.herokuapp.com/users')
+    .then(response => {
+      this.setState({
+        token: response.data.token
+      });
+    })
+    .catch(error => {
+      console.log(error);
+    })
+  }
 
 	render() {
     const { movies, selectedMovie, user } = this.state;
 
     if (!register) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)}/>);
 
-    if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+    else if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
     
     // if (movies.length === 0) return <div className="main-view"/>;
 
