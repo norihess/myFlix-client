@@ -44,10 +44,12 @@ export class MainView extends React.Component{
     })
   }
   onRegistration(user){
-    axios.post('https://nori-myflixdb.herokuapp.com/users')
+    axios.post('https://nori-myflixdb.herokuapp.com/users', user)
     .then(response => {
+      console.log(response.data)
       this.setState({
-        token: response.data.token
+        user: response.data,
+        register: true
       });
     })
     .catch(error => {
@@ -57,14 +59,14 @@ export class MainView extends React.Component{
 
 	render() {
     const { movies, selectedMovie, user, register} = this.state;
-
+    console.log(this.state)
     if (!register) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)}/>);
 
-    else if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+    else if (register) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
     
-    else if (movies.length === 0) return <div className="main-view"/>;
+    // else if (movies.length === 0) return <div className="main-view"/>;
 
-    return (
+    else return (
       <div className="main-view">
         {selectedMovie
           ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => 

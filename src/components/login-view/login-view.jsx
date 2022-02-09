@@ -27,7 +27,6 @@ export function LoginView(props) {
         <input type="password" value={Password} onChange={e => setPassword(e.target.value)} />
       </label>
       <button type="submit" onClick={handleSubmit}>Log in</button>
-      <button type="button" onClick={()=>window.location.replace("/movie")}>login</button>
 			<button type="button" onClick={()=>window.location.replace("/register")}>Register</button>
     </form>
     
