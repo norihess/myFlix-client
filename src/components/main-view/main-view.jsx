@@ -36,9 +36,12 @@ export class MainView extends React.Component{
   }
 
   onLoggedIn(user) {
-    this.setState ({
-      user
-    });
+    axios.get('https://nori-myflixdb.herokuapp.com/users')
+    .then(response => {
+      this.setState({
+        token: response.data.token
+      });
+    })
   }
   onRegistration(user){
     axios.post('https://nori-myflixdb.herokuapp.com/users')
