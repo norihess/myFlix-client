@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Bootstrap from 'Bootstrap';
 
 import './login-view.scss'
 
@@ -13,7 +12,7 @@ export function LoginView(props) {
     console.log(Username, Password);
     /* Send a request to the server for authentication */
     /* then call props.onLoggedIn(username) */
-    props.onLoggedIn(Username);
+    props.onLoggedIn(Username, Password);
   };
 
   return (
