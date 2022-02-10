@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
+import { Form, Button, Container, Row, Col, Card, CardGroup } from 'react-bootstrap';
 
 import './login-view.scss';
 
@@ -21,23 +18,34 @@ export function LoginView(props) {
   };
 
   return (
-    <Container fluid = "md">
-    <form>
-      <Form.Group className="mb-3" controlId="formBasicUsername">
-      <Form.Label>Username</Form.Label>
-      <br/>
-        <input type="text" value={Username} onChange={e => setUsername(e.target.value)}  placeholder="Enter username" />
-      </Form.Group>
-      <br/>
-      <Form.Group className="mb-3" controlId="formBasicUsername">
-      <Form.Label>Password</Form.Label>
-      <br/>
-        <input type="password" value={Password} onChange={e => setPassword(e.target.value)} placeholder="Enter password"  />
-      </Form.Group>
-      <br/>
-      <Button variant="outline-primary" type="submit" onClick={handleSubmit}>Log in</Button>
-			<Button variant="outline-primary" type="button" onClick={()=>window.location.replace("/register")}>Register</Button>
-    </form>
+    <Container>
+      <Row>
+        <Col>
+        <CardGroup>
+          <Card>
+            <Card.Body>
+            <Card.Title><h2>LOGIN!</h2></Card.Title>
+            <form>
+              <Form.Group className="mb-3" controlId="formBasicUsername">
+              <Form.Label>Username</Form.Label>
+              <br/>
+                <Form.Control type="text" value={Username} onChange={e => setUsername(e.target.value)}  placeholder="Enter username" />
+              </Form.Group>
+              <br/>
+              <Form.Group className="mb-3" controlId="formBasicUsername">
+              <Form.Label>Password</Form.Label>
+              <br/>
+                <Form.Control type="password" value={Password} onChange={e => setPassword(e.target.value)} placeholder="Enter password"  />
+              </Form.Group>
+              <br/>
+              <Button variant="outline-primary" type="submit" onClick={handleSubmit}>Log in</Button>
+              <Button variant="outline-primary" type="button" onClick={()=>window.location.replace("/register")}>Register</Button>
+              </form>
+              </Card.Body>
+            </Card>
+          </CardGroup>
+        </Col>
+      </Row>
     </Container>
   );
 }
