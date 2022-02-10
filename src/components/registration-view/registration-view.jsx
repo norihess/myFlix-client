@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import Form from 'react-bootstrap/Form'
 import './registration-view.scss'
 
 export function RegistrationView(props) {
