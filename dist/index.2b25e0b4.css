@@ -1,5 +1,11 @@
 
+* {
+  box-sizing: border-box;
+}
 
+Container {
+  background-color: blue;
+}
 
 .my-flix {
   color: #03467e;
