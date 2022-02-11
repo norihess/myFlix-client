@@ -7,7 +7,7 @@
 .card {
   background: linear-gradient(to bottom right, #4ba4f8, #c2e7fc);
   padding: 10px;
-  margin-top: 15%;
+  margin-top: 10%;
 }
 
 .mb-3 {
@@ -31,5 +31,9 @@ h2 {
 * {
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
+}
+
+html, body, .app-container {
+  background-color: #8b8b8b;
 }
 /*# sourceMappingURL=index.2b25e0b4.css.map */
