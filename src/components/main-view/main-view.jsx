@@ -65,11 +65,15 @@ export class MainView extends React.Component{
 
     if (!register) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)}/>);
 
-    else if (register) return <LoginView onLoggedIn={(user, pass) => this.onLoggedIn(user, pass)} />;
+    else if (register && !token) return <LoginView onLoggedIn={(user, pass) => this.onLoggedIn(user, pass)} />;
 
     else if (token) return (
       <div className="main-view">
-        {movies.map(movie => (
+        {
+          selectedMovie
+                 ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => 
+          				{ this.setSelectedMovie(newSelectedMovie); }}/>
+        : movies.map(movie => (
             <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => 
 							{ this.setSelectedMovie(movie) }}/>
           ))

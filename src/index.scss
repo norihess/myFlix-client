@@ -3,6 +3,15 @@
   font-family: 'Montserrat', sans-serif;
 }
 html, body, .app-container {
-  background-color:#8b8b8b;
+  // background-color:#8b8b8b;
 }
 
+.card-body{
+  background: linear-gradient(to bottom right, rgb(75, 164, 248), rgb(194, 231, 252));
+  margin-top: 20px;
+}
+.card{
+  background: linear-gradient(to bottom right, rgb(75, 164, 248), rgb(194, 231, 252));
+  padding:10px;
+  margin-top: 5%;
+}

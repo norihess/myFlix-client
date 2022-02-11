@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import {Form, Button, Container, Row, Col, Card, CardGroup} from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-import './registration-view.scss'
 
 export function RegistrationView(props) {
   const [ Username, setUsername ] = useState('');
@@ -19,14 +16,14 @@ export function RegistrationView(props) {
     /* then call props on registored user(username) */
     props.onRegistration({Username, Password, Email, Birthday});
   };
-
+//style={{ background: 'linear-gradient(to bottom right, rgb(75, 164, 248), rgb(194, 231, 252))', marginTop: '20px'}}
   return (
     <Container>
       <Row>
         <Col>
           <CardGroup>
             <Card>
-              <Card.Body>
+              <Card.Body >
               <Card.Title><h2>REGISTER NOW</h2></Card.Title>
               <Form className = "form">
               <Form.Group className="mb-3" controlId="formBasicUsername">
