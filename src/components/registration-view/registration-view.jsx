@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { Form, Button, Container, Row, Col, Card, CardGroup } from 'react-bootstrap';
+import {Form, Button, Container, Row, Col, Card, CardGroup} from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './registration-view.scss'
 
