@@ -13,7 +13,6 @@ export class MovieCard extends React.Component {
       </Card.Title>
       <br />
       <img src={movie.ImagePath} width="250" height="250" ></img>
-      {/* <p>{movie.Description.substring(0, 10)}</p> */}
       </Card.Body> 
       </Card>
      
