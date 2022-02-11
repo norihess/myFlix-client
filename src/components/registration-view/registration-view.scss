@@ -1,33 +1,24 @@
-* {
-  box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
-}
-.col{
-  background:linear-gradient(to bottom right, red, yellow);
-  padding: 20px;
-}
-// .row{
-//   margin-top: px;
-//   // background: rgb(228, 226, 226);
-//   height: 600px;
-// }
-// .card-title h5{
-//   color: #222222;
-// }
-// h2{
-//   color: #222222;
-// }
-// .card-group{
-//   background: red;
-// }
 .card-body{
-  background:linear-gradient(to bottom right, red, yellow);
-  padding:20px;
+  background:linear-gradient(to bottom right, rgb(75, 164, 248), rgb(194, 231, 252));
+  margin-top: 20px;
 }
-// .card{
-//   padding: 50px;
-// }
-// .form-control{
-//   background: rgb(226, 38, 38)
-// }
+.card{
+  background:linear-gradient(to bottom right, rgb(75, 164, 248), rgb(194, 231, 252));
+  padding:10px;
+  margin-top: 15%;
 
+}
+.mb-3{
+  padding: 10px;
+}
+h2{
+  padding: 10px;
+}
+.btn {
+  float: right;
+  margin-right: 10px;
+  font-size: 	1.3125em;
+}
+.form-label{
+font-size: 	1.3125em
+}

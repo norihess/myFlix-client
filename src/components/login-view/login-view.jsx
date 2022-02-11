@@ -24,7 +24,7 @@ export function LoginView(props) {
         <CardGroup>
           <Card>
             <Card.Body>
-            <Card.Title><h2>LOGIN!</h2></Card.Title>
+            <Card.Title><h2>LOGIN</h2></Card.Title>
             <form>
               <Form.Group className="mb-3" controlId="formBasicUsername">
               <Form.Label>Username</Form.Label>
@@ -38,8 +38,8 @@ export function LoginView(props) {
                 <Form.Control type="password" value={Password} onChange={e => setPassword(e.target.value)} placeholder="Enter password"  />
               </Form.Group>
               <br/>
-              <Button variant="outline-primary" type="submit" onClick={handleSubmit}>Log in</Button>
-              <Button variant="outline-primary" type="button" onClick={()=>window.location.replace("/register")}>Register</Button>
+              <Button variant="outline-primary" size ="lg" type="submit" onClick={handleSubmit}>Log in</Button>
+              <Button variant="outline-primary" size ="lg" type="button" onClick={()=>window.location.replace("/register")}>Register</Button>
               </form>
               </Card.Body>
             </Card>

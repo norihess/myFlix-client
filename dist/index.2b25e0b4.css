@@ -1,25 +1,35 @@
 
+.card-body {
+  background: linear-gradient(to bottom right, #4ba4f8, #c2e7fc);
+  margin-top: 20px;
+}
+
+.card {
+  background: linear-gradient(to bottom right, #4ba4f8, #c2e7fc);
+  padding: 10px;
+  margin-top: 15%;
+}
+
+.mb-3 {
+  padding: 10px;
+}
+
+h2 {
+  padding: 10px;
+}
+
+.btn {
+  float: right;
+  margin-right: 10px;
+  font-size: 1.3125em;
+}
+
+.form-label {
+  font-size: 1.3125em;
+}
+
 * {
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
-}
-
-.col {
-  background: linear-gradient(to bottom right, red, yellow);
-  padding: 20px;
-}
-
-.card-body {
-  background: linear-gradient(to bottom right, red, yellow);
-  padding: 20px;
-}
-.card-body {
-  color: #222222;
-}
-* {
-  box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
-  background-color: #eeeded;
-  color: #222222;
 }
 /*# sourceMappingURL=index.2b25e0b4.css.map */
