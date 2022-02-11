@@ -3,28 +3,31 @@
   font-family: 'Montserrat', sans-serif;
 }
 .col{
-  background:#8093a7;
-  padding: 40px;
-  margin-top: 30px;
+  background:linear-gradient(to bottom right, red, yellow);
+  padding: 20px;
 }
-.row{
-  margin-top: px;
-  background: rgb(228, 226, 226);
-  height: 600px;
-}
-.card-title h5{
-  color: #222222;
-}
-h2{
-  color: #222222;
-}
-.card{
-  background: black;
-}
+// .row{
+//   margin-top: px;
+//   // background: rgb(228, 226, 226);
+//   height: 600px;
+// }
+// .card-title h5{
+//   color: #222222;
+// }
+// h2{
+//   color: #222222;
+// }
+// .card-group{
+//   background: red;
+// }
 .card-body{
-  background: black;
+  background:linear-gradient(to bottom right, red, yellow);
+  padding:20px;
 }
-.form-control{
-  background: whitesmoke
-}
+// .card{
+//   padding: 50px;
+// }
+// .form-control{
+//   background: rgb(226, 38, 38)
+// }
 
