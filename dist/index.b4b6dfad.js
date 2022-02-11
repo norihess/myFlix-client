@@ -28027,12 +28027,12 @@ class MovieCard extends _reactDefault.default.Component {
         const { movie , onMovieClick  } = this.props;
         return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card, {
             children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Body, {
-                style: {
-                    background: 'grey'
-                },
                 children: [
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Title, {
-                        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("h2", {
+                        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("h4", {
+                            style: {
+                                cursor: 'pointer'
+                            },
                             onClick: ()=>onMovieClick(movie)
                             ,
                             className: "movie-card",

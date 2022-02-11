@@ -12,11 +12,6 @@
   font-family: "Montserrat", sans-serif;
 }
 
-.card {
-  width: 350px;
-  height: auto;
-}
-
 .card-body {
   background: linear-gradient(to bottom right, #4ba4f8, #c2e7fc);
   margin-top: 20px;
