@@ -27878,7 +27878,7 @@ function LoginView(props) {
                                         }, this),
                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Group, {
                                             className: "mb-3",
-                                            controlId: "formBasicUsername",
+                                            controlId: "formBasicPassword",
                                             children: [
                                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Label, {
                                                     children: "Password"
