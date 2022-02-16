@@ -38261,7 +38261,9 @@ function LoginView(props) {
             children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
                 children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.CardGroup, {
                     children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card, {
+                        className: "loCard",
                         children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Body, {
+                            className: "loBody",
                             children: [
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Title, {
                                     children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("h2", {
@@ -38396,7 +38398,7 @@ function LoginView(props) {
                     }, void 0, false, {
                         fileName: "src/components/login-view/login-view.jsx",
                         lineNumber: 25,
-                        columnNumber: 11
+                        columnNumber: 9
                     }, this)
                 }, void 0, false, {
                     fileName: "src/components/login-view/login-view.jsx",

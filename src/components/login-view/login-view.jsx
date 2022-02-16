@@ -22,8 +22,8 @@ export function LoginView(props) {
       <Row>
         <Col>
         <CardGroup>
-          <Card>
-            <Card.Body>
+        <Card className = "loCard">
+            <Card.Body className = "loBody">
             <Card.Title><h2>LOGIN</h2></Card.Title>
             <form>
               <Form.Group className="mb-3" controlId="formBasicUsername">
