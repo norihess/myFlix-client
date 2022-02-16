@@ -22,7 +22,7 @@ export function RegistrationView(props) {
       <Row>
         <Col>
           <CardGroup>
-          <Card className = "regCard">
+            <Card className = "regCard">
               <Card.Body className = "regBody">
               <Card.Title><h2>REGISTER NOW</h2></Card.Title>
               <Form className = "form">
