@@ -1,4 +1,5 @@
 import React from 'react';
+import { Form, Button, Container, Row, Col, Card, CardGroup } from 'react-bootstrap';
 
 export class MovieView extends React.Component {
 
@@ -17,19 +18,39 @@ export class MovieView extends React.Component {
 
     return (
       <div className="movie-view">
+        <div className="movie-title">
+          <span className="label">Title: </span>
+          <span className="value">{movie.Title}</span>
+        </div>
         <div className="movie-poster">
-          <img src={movie.ImagePath} />
+          <img src={movie.ImagePath} max-width="350" max-height="350"/>
+        </div>
+        <br />
+        <div className="movie-description">
+          <span className="label">Description: </span>
+          <span className="value">{movie.Description}</span>
+        </div>
+        <br />
+        <Button variant="outline-primary" size ="lg" type="button" class= "movie-btn"onClick ={() => {onBackClick(null);}}>Back</Button>
+      </div>
+    );
+  }
+}
+
+
+{/* <div className="movie-view">
+        <div className="movie-poster">
+          <img src={movie.ImagePath} width="350" height="350"/>
         </div>
         <div className="movie-title">
           <span className="label">Title: </span>
           <span className="value">{movie.Title}</span>
         </div>
+        <br />
         <div className="movie-description">
           <span className="label">Description: </span>
           <span className="value">{movie.Description}</span>
         </div>
-        <button onClick ={() => {onBackClick(null);}}>Back</button>
-      </div>
-    );
-  }
-}
+        <br />
+        <Button variant="outline-primary" size ="lg" type="button" onClick ={() => {onBackClick(null);}}>Back</Button>
+      </div> */}

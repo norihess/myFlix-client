@@ -21,9 +21,9 @@ export function RegistrationView(props) {
     <Container>
       <Row>
         <Col>
-          <CardGroup>
-            <Card>
-              <Card.Body >
+          <CardGroup className="register">
+            <Card className="reg-card">
+              <Card.Body className="reg-body">
               <Card.Title><h2>REGISTER NOW</h2></Card.Title>
               <Form className = "form">
               <Form.Group className="mb-3" controlId="formBasicUsername">
@@ -51,7 +51,7 @@ export function RegistrationView(props) {
               </Form.Group>
               <br/>
               <Button variant="outline-primary" size ="lg" type="submit" onClick={handleSubmit}>Register</Button>
-              <Button variant="outline-primary" size ="lg" type="button" onClick={()=>window.location.replace("/")}>Log in</Button>
+              <Button variant="outline-primary" size ="lg" type="button" onClick={()=>window.location.replace("./")}>Login</Button>
               </Form>
               </Card.Body>
             </Card>

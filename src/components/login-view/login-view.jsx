@@ -21,9 +21,9 @@ export function LoginView(props) {
     <Container>
       <Row>
         <Col>
-        <CardGroup>
-          <Card>
-            <Card.Body>
+        <CardGroup className= "login">
+          <Card className="lo-card">
+            <Card.Body className="lo-body">
             <Card.Title><h2>LOGIN</h2></Card.Title>
             <form>
               <Form.Group className="mb-3" controlId="formBasicUsername">
@@ -32,7 +32,7 @@ export function LoginView(props) {
                 <Form.Control type="text" value={Username} onChange={e => setUsername(e.target.value)}  placeholder="Enter username" />
               </Form.Group>
               <br/>
-              <Form.Group className="mb-3" controlId="formBasicUsername">
+              <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
               <br/>
                 <Form.Control type="password" value={Password} onChange={e => setPassword(e.target.value)} placeholder="Enter password"  />

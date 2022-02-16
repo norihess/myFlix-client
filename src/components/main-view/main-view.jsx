@@ -69,7 +69,7 @@ export class MainView extends React.Component{
 
 
 	render() {
-    const { movies, selectedMovie, user, register, token, login} = this.state;
+    const { movies, selectedMovie, register, token} = this.state;
     console.log(this.state)
 
     if (!token && !register ) return <LoginView onLoggedIn={(user, pass) => this.onLoggedIn(user, pass)} setRegister={this.setRegister} />;

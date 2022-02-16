@@ -6,6 +6,7 @@ export class MovieCard extends React.Component {
   render() {
     const { movie, onMovieClick } = this.props;
     return (
+      <CardGroup>
       <Card>
       <Card.Body>
       <Card.Title>
@@ -15,7 +16,7 @@ export class MovieCard extends React.Component {
       <img src={movie.ImagePath} width="250" height="250" ></img>
       </Card.Body> 
       </Card>
-     
+      </CardGroup>
     );
   }
 }
