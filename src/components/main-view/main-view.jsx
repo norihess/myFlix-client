@@ -6,6 +6,8 @@ import { RegistrationView } from '../registration-view/registration-view';
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { Form, Button, Container, Row, Col, Card, CardGroup, NavDropdown } from 'react-bootstrap';
+
 
 export class MainView extends React.Component{
   constructor() {
