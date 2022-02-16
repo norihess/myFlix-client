@@ -24699,6 +24699,18 @@ function RegistrationView(props) {
                                             fileName: "src/components/registration-view/registration-view.jsx",
                                             lineNumber: 53,
                                             columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
+                                            variant: "outline-primary",
+                                            size: "lg",
+                                            type: "button",
+                                            onClick: ()=>window.location.replace("./")
+                                            ,
+                                            children: "Login"
+                                        }, void 0, false, {
+                                            fileName: "src/components/registration-view/registration-view.jsx",
+                                            lineNumber: 54,
+                                            columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
