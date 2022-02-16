@@ -6,7 +6,7 @@ import { RegistrationView } from '../registration-view/registration-view';
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
-import { Form, Button, Container, Row, Col, Card, CardGroup, NavDropdown } from 'react-bootstrap';
+import { Form, Button, Container, Row, Col, Card, CardGroup, Nav } from 'react-bootstrap';
 
 
 export class MainView extends React.Component{
@@ -77,6 +77,14 @@ export class MainView extends React.Component{
     else if (register && !token) return <RegistrationView onRegistration={(register) => this.onRegistration(register)}/>;
 
     else return (
+    <Nav className="justify-content-end" variant="pills" defaultActiveKey="/logout"
+      // activeKey="/logout"
+      onClick={()=>window.location.replace("./")}
+    >
+      <Nav.Item>
+        <Nav.Link href="./"><h3>Logout</h3></Nav.Link>
+      </Nav.Item>
+     
       <Row className="main-view justify-content-md-center">
         { selectedMovie
                  ? (
@@ -93,6 +101,7 @@ export class MainView extends React.Component{
           ))
         }
       </Row> 
+      </Nav>
       );
 
     // if (!register) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)}/>);

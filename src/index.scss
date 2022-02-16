@@ -3,11 +3,11 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-.loCard .card{
+.log{
   background: linear-gradient(to bottom right, rgb(75, 164, 248), rgb(194, 231, 252));
   margin-top: 20px;
 }
-.regCard .card{
+.reg{
   background: linear-gradient(to bottom right, rgb(75, 164, 248), rgb(194, 231, 252));
   padding:10px;
   margin-top: 5%;
@@ -33,7 +33,7 @@ font-size: 	1.3125em;
 }
 
 .card-img-top{
-  max-height: 230px;
+  max-height: 650px;
   width: auto;
   overflow: hidden;
 }
@@ -45,11 +45,12 @@ font-size: 	1.3125em;
 // .card-body{
 //   background: red;
 // }
-// .movies{
-//   background: ghostwhite;
-//   text-align: center;
-//   padding: 20px;
-// }
-// .movie-btn{
-//   float: left;
-// }
+.movie{
+  background: rgb(202, 219, 235);
+  // text-align: center;
+  // margin: 20px;
+}
+.nav {
+  height: 50px;
+  // background: blue;
+}

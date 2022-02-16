@@ -6,9 +6,9 @@ export class MovieCard extends React.Component {
   render() {
     const { movie, onMovieClick } = this.props;
     return (
-      <CardGroup>
+      <CardGroup className ="movie">
       <Card>
-      <Card.Body>
+      <Card.Body className="movie">
       <Card.Title>
         <h4 style={{cursor: 'pointer'}} onClick={() => onMovieClick(movie)} className="movie-card">{movie.Title}</h4>
       </Card.Title>
