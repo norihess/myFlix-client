@@ -22836,12 +22836,18 @@ class MainView extends _reactDefault.default.Component {
             console.log(response.data);
             this.setState({
                 user: response.data,
-                register: true
+                register: false,
+                login: true
             });
         }).catch((error)=>{
             console.log(error);
         });
     }
+    setRegister = ()=>{
+        this.setState({
+            register: true
+        });
+    };
     render() {
         const { movies , selectedMovie , register: register1 , token  } = this.state;
         console.log(this.state);
@@ -22851,14 +22857,14 @@ class MainView extends _reactDefault.default.Component {
             setRegister: this.setRegister
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 68,
+            lineNumber: 75,
             columnNumber: 38
         }, this));
         else if (register1 && !token) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_registrationView.RegistrationView, {
             onRegistration: (register)=>this.onRegistration(register)
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 70,
+            lineNumber: 77,
             columnNumber: 41
         }, this));
         else return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Row, {
@@ -22872,12 +22878,12 @@ class MainView extends _reactDefault.default.Component {
                     }
                 }, void 0, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 77,
+                    lineNumber: 84,
                     columnNumber: 18
                 }, this)
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 76,
+                lineNumber: 83,
                 columnNumber: 19
             }, this) : movies.map((movie1)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
                     md: 3,
@@ -22888,18 +22894,18 @@ class MainView extends _reactDefault.default.Component {
                         }
                     }, movie1._id, false, {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 83,
+                        lineNumber: 90,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 82,
+                    lineNumber: 89,
                     columnNumber: 11
                 }, this)
             )
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 73,
+            lineNumber: 80,
             columnNumber: 7
         }, this));
     // if (!register) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)}/>);

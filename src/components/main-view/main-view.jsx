@@ -53,11 +53,18 @@ export class MainView extends React.Component{
       console.log(response.data)
       this.setState({
         user: response.data,
-        register: true
+        register: false,
+        login: true
       });
     })
     .catch(error => {
       console.log(error);
+    })
+  }
+
+  setRegister = () => {
+    this.setState({
+      register: true
     })
   }
 
