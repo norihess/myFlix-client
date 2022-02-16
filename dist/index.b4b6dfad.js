@@ -38396,7 +38396,7 @@ function LoginView(props) {
                                             variant: "outline-primary",
                                             size: "lg",
                                             type: "button",
-                                            onClick: ()=>window.location.replace("./register")
+                                            onClick: ()=>props.setRegister()
                                             ,
                                             children: "Register"
                                         }, void 0, false, {
