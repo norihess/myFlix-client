@@ -24526,7 +24526,9 @@ function RegistrationView(props) {
             children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
                 children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.CardGroup, {
                     children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card, {
+                        className: "regCard",
                         children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Body, {
+                            className: "regBody",
                             children: [
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Title, {
                                     children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("h2", {
@@ -24712,7 +24714,7 @@ function RegistrationView(props) {
                     }, void 0, false, {
                         fileName: "src/components/registration-view/registration-view.jsx",
                         lineNumber: 25,
-                        columnNumber: 13
+                        columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "src/components/registration-view/registration-view.jsx",
