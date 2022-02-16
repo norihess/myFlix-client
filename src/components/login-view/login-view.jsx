@@ -22,7 +22,7 @@ export function LoginView(props) {
       <Row>
         <Col>
         <CardGroup>
-        <Card className = "loCard">
+         <Card className = "loCard">
             <Card.Body className = "loBody">
             <Card.Title><h2>LOGIN</h2></Card.Title>
             <form>

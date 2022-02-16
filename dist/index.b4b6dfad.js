@@ -38419,7 +38419,7 @@ function LoginView(props) {
                     }, void 0, false, {
                         fileName: "src/components/login-view/login-view.jsx",
                         lineNumber: 25,
-                        columnNumber: 9
+                        columnNumber: 10
                     }, this)
                 }, void 0, false, {
                     fileName: "src/components/login-view/login-view.jsx",
