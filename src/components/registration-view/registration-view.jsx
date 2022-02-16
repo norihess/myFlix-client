@@ -51,6 +51,7 @@ export function RegistrationView(props) {
               </Form.Group>
               <br/>
               <Button variant="outline-primary" size ="lg" type="submit" onClick={handleSubmit}>Register</Button>
+              <Button variant="outline-primary" size ="lg" type="button" onClick={()=>window.location.replace("/")}>Log in</Button>
               </Form>
               </Card.Body>
             </Card>

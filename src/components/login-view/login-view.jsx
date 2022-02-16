@@ -39,7 +39,7 @@ export function LoginView(props) {
               </Form.Group>
               <br/>
               <Button variant="outline-primary" size ="lg" type="submit" onClick={handleSubmit}>Log in</Button>
-              <Button variant="outline-primary" size ="lg" type="button" onClick={()=>window.location.replace("/register")}>Register</Button>
+              <Button variant="outline-primary" size ="lg" type="button" onClick={()=>props.setRegister()}>Register</Button>
               </form>
               </Card.Body>
             </Card>

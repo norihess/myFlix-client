@@ -22835,30 +22835,38 @@ class MainView extends _reactDefault.default.Component {
             console.log(response.data);
             this.setState({
                 user: response.data,
-                register: true
+                register: false,
+                login: true
             });
         }).catch((error)=>{
             console.log(error);
         });
     }
+    setRegister = ()=>{
+        this.setState({
+            register: true
+        });
+    };
     render() {
-        const { movies , selectedMovie , user: user1 , register: register1 , token  } = this.state;
+        const { movies , selectedMovie , user: user1 , register: register1 , token , login  } = this.state;
         console.log(this.state);
-        if (!register1) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_registrationView.RegistrationView, {
+        if (!token && !register1) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_loginView.LoginView, {
+            onLoggedIn: (user, pass)=>this.onLoggedIn(user, pass)
+            ,
+            setRegister: this.setRegister
+        }, void 0, false, {
+            fileName: "src/components/main-view/main-view.jsx",
+            lineNumber: 75,
+            columnNumber: 38
+        }, this));
+        else if (register1 && !token) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_registrationView.RegistrationView, {
             onRegistration: (register)=>this.onRegistration(register)
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 66,
-            columnNumber: 28
-        }, this));
-        else if (register1 && !token) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_loginView.LoginView, {
-            onLoggedIn: (user, pass)=>this.onLoggedIn(user, pass)
-        }, void 0, false, {
-            fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 68,
+            lineNumber: 77,
             columnNumber: 41
         }, this));
-        else if (token) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+        else return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
             className: "main-view",
             children: selectedMovie ? /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieView.MovieView, {
                 movie: selectedMovie,
@@ -22867,7 +22875,7 @@ class MainView extends _reactDefault.default.Component {
                 }
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 74,
+                lineNumber: 83,
                 columnNumber: 20
             }, this) : movies.map((movie1)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieCard.MovieCard, {
                     movie: movie1,
@@ -22876,15 +22884,29 @@ class MainView extends _reactDefault.default.Component {
                     }
                 }, movie1._id, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 77,
+                    lineNumber: 86,
                     columnNumber: 13
                 }, this)
             )
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 71,
+            lineNumber: 80,
             columnNumber: 7
         }, this));
+    // if (!register) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)}/>);
+    // else if (register && !token) return <LoginView onLoggedIn={(user, pass) => this.onLoggedIn(user, pass)} />;
+    // else if (token) return (
+    //   <div className="main-view">
+    //     {
+    //       selectedMovie
+    //              ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => 
+    //       				{ this.setSelectedMovie(newSelectedMovie); }}/>
+    //     : movies.map(movie => (
+    //         <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => 
+    // 					{ this.setSelectedMovie(movie) }}/>
+    //       ))
+    //     }
+    //   </div> )
     // if (!register) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)}/>);
     // else if (register) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
     // // else if (movies.length === 0) return <div className="main-view"/>;
@@ -22909,7 +22931,7 @@ exports.default = MainView;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","./main-view.scss":"eBaMl","../registration-view/registration-view":"3U8r7","../login-view/login-view":"9YtA0","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"jo6P5":[function(require,module,exports) {
+},{"react":"21dqq","axios":"jo6P5","./main-view.scss":"eBaMl","../registration-view/registration-view":"3U8r7","../login-view/login-view":"9YtA0","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react/jsx-dev-runtime":"iTorj"}],"jo6P5":[function(require,module,exports) {
 module.exports = require('./lib/axios');
 
 },{"./lib/axios":"63MyY"}],"63MyY":[function(require,module,exports) {
@@ -24679,6 +24701,18 @@ function RegistrationView(props) {
                                         }, void 0, false, {
                                             fileName: "src/components/registration-view/registration-view.jsx",
                                             lineNumber: 53,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
+                                            variant: "outline-primary",
+                                            size: "lg",
+                                            type: "button",
+                                            onClick: ()=>window.location.replace("/")
+                                            ,
+                                            children: "Log in"
+                                        }, void 0, false, {
+                                            fileName: "src/components/registration-view/registration-view.jsx",
+                                            lineNumber: 54,
                                             columnNumber: 15
                                         }, this)
                                     ]
@@ -27931,7 +27965,7 @@ function LoginView(props) {
                                             variant: "outline-primary",
                                             size: "lg",
                                             type: "button",
-                                            onClick: ()=>window.location.replace("/register")
+                                            onClick: ()=>props.setRegister()
                                             ,
                                             children: "Register"
                                         }, void 0, false, {
