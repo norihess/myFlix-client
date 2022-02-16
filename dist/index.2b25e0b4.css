@@ -5,12 +5,12 @@
   font-family: "Montserrat", sans-serif;
 }
 
-.reg-body .lo-body {
+.loCard .card {
   background: linear-gradient(to bottom right, #4ba4f8, #c2e7fc);
   margin-top: 20px;
 }
 
-.reg-card .lo-card {
+.regCard .card {
   background: linear-gradient(to bottom right, #4ba4f8, #c2e7fc);
   padding: 10px;
   margin-top: 5%;
@@ -37,17 +37,12 @@ h2 {
 .main-view {
   display: grid;
   grid-gap: 20px;
-  grid-template: auto/repeat(auto-fit, minmax(300px, 1fr));
 }
 
-.movies {
-  background: ghostwhite;
-  text-align: center;
-  padding: 20px;
-}
-
-.movie-btn {
-  float: left;
+.card-img-top {
+  max-height: 230px;
+  width: auto;
+  overflow: hidden;
 }
 @charset "UTF-8";/*!
  * Bootstrap v5.1.3 (https://getbootstrap.com/)

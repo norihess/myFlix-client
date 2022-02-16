@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Button, Container, Row, Col, Card, CardGroup } from 'react-bootstrap';
+import { Form, Button, Container, Row, Col, Card, CardGroup, NavDropdown } from 'react-bootstrap';
 
 export class MovieView extends React.Component {
 
@@ -17,22 +17,14 @@ export class MovieView extends React.Component {
     const { movie, onBackClick } = this.props;
 
     return (
-      <div className="movie-view">
-        <div className="movie-title">
-          <span className="label">Title: </span>
-          <span className="value">{movie.Title}</span>
-        </div>
-        <div className="movie-poster">
-          <img src={movie.ImagePath} max-width="350" max-height="350"/>
-        </div>
-        <br />
-        <div className="movie-description">
-          <span className="label">Description: </span>
-          <span className="value">{movie.Description}</span>
-        </div>
-        <br />
-        <Button variant="outline-primary" size ="lg" type="button" class= "movie-btn"onClick ={() => {onBackClick(null);}}>Back</Button>
-      </div>
+      <Card>
+        <Card.Img variant="top" src={movie.ImagePath}/>
+        <Card.Body>
+          <Card.Title>{movie.Title}</Card.Title>
+          <Card.Text>{movie.Description}</Card.Text>
+          <Button variant="outline-primary" size ="lg" type="button" onClick ={() => {onBackClick(null);}}>Back</Button>
+        </Card.Body>
+      </Card>
     );
   }
 }

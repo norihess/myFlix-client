@@ -13,7 +13,8 @@ export class MovieCard extends React.Component {
         <h4 style={{cursor: 'pointer'}} onClick={() => onMovieClick(movie)} className="movie-card">{movie.Title}</h4>
       </Card.Title>
       <br />
-      <img src={movie.ImagePath} width="250" height="250" ></img>
+      <Card.Img variant="top" src={movie.ImagePath}/>
+      {/* <img src={movie.ImagePath} width="250" height="250" ></img> */}
       </Card.Body> 
       </Card>
       </CardGroup>

@@ -3,11 +3,11 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-.reg-body .lo-body{
+.loCard .card{
   background: linear-gradient(to bottom right, rgb(75, 164, 248), rgb(194, 231, 252));
   margin-top: 20px;
 }
-.reg-card .lo-card{
+.regCard .card{
   background: linear-gradient(to bottom right, rgb(75, 164, 248), rgb(194, 231, 252));
   padding:10px;
   margin-top: 5%;
@@ -29,9 +29,15 @@ font-size: 	1.3125em;
 .main-view{
   display: grid;
   grid-gap: 20px;
-  grid-template: auto / repeat(auto-fit, minmax(300px, 1fr));
-  
+  // grid-template: auto / repeat(auto-fit, minmax(300px, 1fr));
 }
+
+.card-img-top{
+  max-height: 230px;
+  width: auto;
+  overflow: hidden;
+}
+// }
 // movie card
 // .mov-card{
 //   background: blue;
@@ -39,11 +45,11 @@ font-size: 	1.3125em;
 // .card-body{
 //   background: red;
 // }
-.movies{
-  background: ghostwhite;
-  text-align: center;
-  padding: 20px;
-}
-.movie-btn{
-  float: left;
-}
+// .movies{
+//   background: ghostwhite;
+//   text-align: center;
+//   padding: 20px;
+// }
+// .movie-btn{
+//   float: left;
+// }

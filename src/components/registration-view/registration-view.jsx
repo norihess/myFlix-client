@@ -21,9 +21,9 @@ export function RegistrationView(props) {
     <Container>
       <Row>
         <Col>
-          <CardGroup className="register">
-            <Card className="reg-card">
-              <Card.Body className="reg-body">
+          <CardGroup>
+            <Card className = "regCard">
+              <Card.Body className = "regBody">
               <Card.Title><h2>REGISTER NOW</h2></Card.Title>
               <Form className = "form">
               <Form.Group className="mb-3" controlId="formBasicUsername">
