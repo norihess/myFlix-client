@@ -60,25 +60,31 @@ export class MainView extends React.Component{
   }
 
 	render() {
-    const { movies, selectedMovie, user, register, token} = this.state;
+    const { movies, selectedMovie, register, token} = this.state;
     console.log(this.state)
 
-    if (!register) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)}/>);
+    if (!token && !register ) return <LoginView onLoggedIn={(user, pass) => this.onLoggedIn(user, pass)} setRegister={this.setRegister} />;
 
-    else if (register && !token) return <LoginView onLoggedIn={(user, pass) => this.onLoggedIn(user, pass)} />;
+    else if (register && !token) return <RegistrationView onRegistration={(register) => this.onRegistration(register)}/>;
 
-    else if (token) return (
-      <div className="main-view">
-        {
-          selectedMovie
-                 ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => 
+    else return (
+      <Row className="main-view justify-content-md-center">
+        { selectedMovie
+                 ? (
+                  <Col md={8}>
+                 <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => 
           				{ this.setSelectedMovie(newSelectedMovie); }}/>
+                  </Col>
+                  )
         : movies.map(movie => (
+          <Col md={3}>
             <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => 
 							{ this.setSelectedMovie(movie) }}/>
+              </Col>
           ))
         }
-      </div> )
+      </Row> 
+      );
 
     // if (!register) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)}/>);
 
