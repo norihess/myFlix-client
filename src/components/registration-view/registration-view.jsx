@@ -22,8 +22,8 @@ export function RegistrationView(props) {
       <Row>
         <Col>
           <CardGroup>
-            <Card>
-              <Card.Body >
+            <Card className = "regCard">
+              <Card.Body className = "regBody">
               <Card.Title><h2>REGISTER NOW</h2></Card.Title>
               <Form className = "form">
               <Form.Group className="mb-3" controlId="formBasicUsername">
@@ -47,10 +47,11 @@ export function RegistrationView(props) {
               <Form.Group className="mb-3" controlId="formBasicBirthday">
               <Form.Label>Birthday</Form.Label>
               <br/>
-                <Form.Control  type="birthday" value={Birthday} onChange={e => setBirthday(e.target.value)} placeholder="00/00/0000"/>
+                <Form.Control  type="birthday" value={Birthday} onChange={e => setBirthday(e.target.value)} placeholder="mth/day/yr"/>
               </Form.Group>
               <br/>
               <Button variant="outline-primary" size ="lg" type="submit" onClick={handleSubmit}>Register</Button>
+              <Button variant="outline-primary" size ="lg" type="button" onClick={()=>window.location.replace("./")}>Login</Button>
               </Form>
               </Card.Body>
             </Card>
