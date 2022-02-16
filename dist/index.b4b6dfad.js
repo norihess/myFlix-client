@@ -24652,7 +24652,7 @@ function RegistrationView(props) {
                                                     value: Birthday,
                                                     onChange: (e)=>setBirthday(e.target.value)
                                                     ,
-                                                    placeholder: "mo/day/yr"
+                                                    placeholder: "mth/day/yr"
                                                 }, void 0, false, {
                                                     fileName: "src/components/registration-view/registration-view.jsx",
                                                     lineNumber: 50,
