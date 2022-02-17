@@ -1,14 +1,27 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 import { Form, Button, Container, Row, Col, Card, CardGroup } from 'react-bootstrap';
 
 import './login-view.scss';
+import axios from 'axios';
 
 export function LoginView(props) {
   const [ Username, setUsername ] = useState('');
   const [ Password, setPassword ] = useState('');
 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   axios.post(`https://nori-myflixdb.herokuapp.com/login?Username=${username}&Password=${pass}`)
+  //   .then(response => {
+  //     const data = response.data;
+  //   props.onLoggedIn(data);
+  // })
+  // .catch(e => {
+  //   console.log('no such user')
+  //   });
+  // };
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(Username, Password);
