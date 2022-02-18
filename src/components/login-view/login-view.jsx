@@ -10,9 +10,30 @@ import axios from 'axios';
 export function LoginView(props) {
   const [ Username, setUsername ] = useState('');
   const [ Password, setPassword ] = useState('');
+  const [ usernameErr, setUsernameErr ] = useState('');
+  const [ passwordErr, setPasswordErr ] = useState('');
+
+//validate user inputs
+const validate = () => {
+  let isReq = true;
+  if(!username) {
+    setUsernameErr ('Username Required');
+    isReq = false;
+  }
+  if(!password) {
+    setPasswordErr ('Password Required');
+    isReq = false;
+  } else if (password.legth < 6) {
+    setPasswordErr ('Password must be 6 characters long');
+    isReq = false;
+  }
+  return isReq;
+}
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const isReq = validate ();
+    if (isReq) {
     /* Send a request to the server for authentication */
     axios.post(`https://nori-myflixdb.herokuapp.com/login`, {
       Username: Username,
@@ -26,6 +47,7 @@ export function LoginView(props) {
       console.log('no such user')
     });
   };
+};
   // const handleSubmit = (e) => {
   //   e.preventDefault();
   //   console.log(Username, Password);
@@ -47,12 +69,14 @@ export function LoginView(props) {
               <Form.Label>Username</Form.Label>
               <br/>
                 <Form.Control type="text" value={Username} onChange={e => setUsername(e.target.value)}  placeholder="Enter username" />
+                {usernameErr && <p>{usernameErr}</p>}
               </Form.Group>
               <br/>
               <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
               <br/>
                 <Form.Control type="password" value={Password} onChange={e => setPassword(e.target.value)} placeholder="Enter password"  />
+                {passwordErr && <p>{passwordErr}</p>}
               </Form.Group>
               <br/>
               <Button variant="outline-primary" size ="lg" type="submit" onClick={handleSubmit}>Log in</Button>

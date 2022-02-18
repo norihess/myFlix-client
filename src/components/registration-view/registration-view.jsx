@@ -5,9 +5,38 @@ import {Form, Button, Container, Row, Col, Card, CardGroup} from 'react-bootstra
 
 export function RegistrationView(props) {
   const [ Username, setUsername ] = useState('');
+  const [ Username, setUsernameErr ] = useState('');
   const [ Password, setPassword ] = useState('');
+  const [ Password, setPasswordErr ] = useState('');
   const [ Email, setEmail ] = useState('');
+  const [ Email, setEmailErr ] = useState('');
   const [ Birthday, setBirthday ] = useState('');
+  const [ Birthday, setBirthdayErr ] = useState('');
+
+  //validate user inputs
+const validate = () => {
+  let isReq = true;
+  if(!username) {
+    setUsernameErr ('Username Required');
+    isReq = false;
+  }
+  if(!email){
+    setEmailErr ('Must have a valid email');
+    isReq = false;
+  }
+  if(!birdthday){
+    setBirthdayErr('Birthday Required')
+    isReq = false;
+  }
+  if(!password) {
+    setPasswordErr ('Password Required');
+    isReq = false;
+  } else if (password.legth < 6) {
+    setPasswordErr ('Password must be 6 characters long');
+    isReq = false;
+  }
+  return isReq;
+}
 	
 	const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,24 +59,28 @@ export function RegistrationView(props) {
               <Form.Label>Username</Form.Label>
               <br/>
                 <Form.Control type="text" value={Username} onChange={e => setUsername(e.target.value)} placeholder="Enter username"  />
+                {usernameErr && <p>{usernameErr}</p>}
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
               <br/>
                 <Form.Control type="password" value={Password} onChange={e => setPassword(e.target.value)} placeholder="Enter password"/>
+                {passwordErr && <p>{passwordErr}</p>}
               </Form.Group>
              
               <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email</Form.Label>
               <br/>
                 <Form.Control type="Email" value={Email} onChange={e => setEmail(e.target.value)} placeholder="Enter email"/>
+                {emailErr && <p>{emailErr}</p>}
               </Form.Group>
               
               <Form.Group className="mb-3" controlId="formBasicBirthday">
               <Form.Label>Birthday</Form.Label>
               <br/>
                 <Form.Control  type="birthday" value={Birthday} onChange={e => setBirthday(e.target.value)} placeholder="mth/d/yr"/>
+                {birthdayErr && <p>{birthdayErr}</p>}
               </Form.Group>
               <br/>
               <Button variant="outline-primary" size ="lg" type="submit" onClick={handleSubmit}>Register</Button>
