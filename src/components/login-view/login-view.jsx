@@ -35,15 +35,16 @@ const validate = () => {
 // onLoggedIn
   const handleSubmit = (e) => {
     e.preventDefault();
-    const isReq = validate ();
+    const isReq = validate();
     if (isReq) {
     /* Send a request to the server for authentication */
-    axios.post(`https://nori-myflixdb.herokuapp.com/login`, {
+    axios.get(`https://nori-myflixdb.herokuapp.com/login`, {
       Username: Username,
       Password: Password
     })
     .then(response => {
       const data = response.data;
+      console.log(data);
       props.onLoggedIn(data);
     })
     .catch(e => {

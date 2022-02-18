@@ -5,49 +5,66 @@ import {Form, Button, Container, Row, Col, Card, CardGroup} from 'react-bootstra
 
 export function RegistrationView(props) {
   const [ Username, setUsername ] = useState('');
-  const [ username, setUsernameErr ] = useState('');
   const [ Password, setPassword ] = useState('');
-  const [ password, setPasswordErr ] = useState('');
   const [ Email, setEmail ] = useState('');
-  const [ email, setEmailErr ] = useState('');
   const [ Birthday, setBirthday ] = useState('');
-  const [ birthday, setBirthdayErr ] = useState('');
+  const [ Values, setValues ] = useState({
+    usernameErr: '',
+    passwordErr: '',
+    emailErr: '',
+  })
 
   //validate user inputs
 const validate = () => {
   let isReq = true;
   if(!Username) {
-    setUsernameErr ('Username Required');
+    setValues({ Values, usernameErr: 'Username Required' });
     isReq = false;
   }else if(Username.length < 2){
-    setUsernameErr('Username must be 2 characters long');
+    setValues ({Values, usernameErr:'Username must be 2 characters long'});
     isReq = false;
    }
   if(!Email){
-    setEmailErr ('Must have a valid email');
+    setValues ({Values, emailErr:'Must have a valid email'});
     isReq = false;
   }
-  if(!Birdthday){
-    setBirthdayErr('Birthday Required')
+  if(!Birthday){
+    setValues ({Values, birthdayErr:'Birthday Required'})
     isReq = false;
   }
   if(!Password) {
-    setPasswordErr ('Password Required');
+    setValues ({Values, passwordErr:'Password Required'});
     isReq = false;
   } else if (Password.length < 6) {
-    setPasswordErr ('Password must be 6 characters long');
+    setValues ({Values, passwordErr: 'Password must be 6 characters long'});
     isReq = false;
   }
   return isReq;
 }
 	
-	const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(Username, Password, Email, Birthday);
-    /* Send a request to the server for authentication */
-    /* then call props on registored user(username) */
-    props.onRegistration({Username, Password, Email, Birthday});
-  };
+const handleSubmit = (e) => {
+  e.preventDefault();
+  const isReq = validate();
+  if (isReq) {
+  /* Send a request to the server for authentication */
+  axios.post(`https://nori-myflixdb.herokuapp.com/users`, {
+    Username: Username,
+    Password: Password,
+    Email: Email,
+    Birthday: Birthday
+  })
+  .then(response => {
+    const data = response.data;
+    console.log(data);
+    alert('Registration successful, please login!');
+    window.open('/', '_self');
+    props.onLoggedIn(data);
+  })
+  .catch(e => {
+    console.log('no such user')
+    });
+  }
+};
 //style={{ background: 'linear-gradient(to bottom right, rgb(75, 164, 248), rgb(194, 231, 252))', marginTop: '20px'}}
   return (
     <Container>
