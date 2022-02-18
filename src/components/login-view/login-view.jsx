@@ -38,13 +38,9 @@ const validate = () => {
     const isReq = validate();
     if (isReq) {
     /* Send a request to the server for authentication */
-    axios.get(`https://nori-myflixdb.herokuapp.com/login`, {
-      Username: Username,
-      Password: Password
-    })
+    axios.post(`https://nori-myflixdb.herokuapp.com/login?Username=${username}&Password=${pass}`)
     .then(response => {
       const data = response.data;
-      console.log(data);
       props.onLoggedIn(data);
     })
     .catch(e => {
