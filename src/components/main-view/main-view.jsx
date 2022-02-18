@@ -79,6 +79,13 @@ export class MainView extends React.Component{
     localStorage.setItem('user', authData.user.Username);
     this.getMovies(authData.token);
   }
+  onLoggedOut() {
+  localStorage.removeItem('token');
+  localStorage.removeItem('user');
+  this.setState({
+    user: null
+  });
+}
 
   onRegistration(user){
     axios.post('https://nori-myflixdb.herokuapp.com/users', user)
@@ -112,8 +119,9 @@ export class MainView extends React.Component{
     else return (
     <Nav className="justify-content-end" variant="pills" defaultActiveKey="/logout"
       // activeKey="/logout"
-      onClick={()=>window.location.replace("./")}
-    >
+      // onClick={()=>window.location.replace("./")}
+      onClick={() => { this.onLoggedOut() }}>
+        
       <Nav.Item>
         <Nav.Link href="./"><h3>Logout</h3></Nav.Link>
       </Nav.Item>

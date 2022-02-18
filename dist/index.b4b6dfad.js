@@ -22866,6 +22866,13 @@ class MainView extends _reactDefault.default.Component {
         localStorage.setItem('user', authData.user.Username);
         this.getMovies(authData.token);
     }
+    onLoggedOut() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        this.setState({
+            user: null
+        });
+    }
     onRegistration(user) {
         _axiosDefault.default.post('https://nori-myflixdb.herokuapp.com/users', user).then((response)=>{
             console.log(response.data);
@@ -22892,14 +22899,14 @@ class MainView extends _reactDefault.default.Component {
             setRegister: this.setRegister
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 108,
+            lineNumber: 115,
             columnNumber: 37
         }, this));
         else if (register1 && !token) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_registrationView.RegistrationView, {
             onRegistration: (register)=>this.onRegistration(register)
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 110,
+            lineNumber: 117,
             columnNumber: 41
         }, this));
         else return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav, {
@@ -22907,8 +22914,10 @@ class MainView extends _reactDefault.default.Component {
             variant: "pills",
             defaultActiveKey: "/logout",
             // activeKey="/logout"
-            onClick: ()=>window.location.replace("./")
-            ,
+            // onClick={()=>window.location.replace("./")}
+            onClick: ()=>{
+                this.onLoggedOut();
+            },
             children: [
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav.Item, {
                     children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav.Link, {
@@ -22917,17 +22926,17 @@ class MainView extends _reactDefault.default.Component {
                             children: "Logout"
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 118,
+                            lineNumber: 126,
                             columnNumber: 29
                         }, this)
                     }, void 0, false, {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 118,
+                        lineNumber: 126,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 117,
+                    lineNumber: 125,
                     columnNumber: 7
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Row, {
@@ -22941,12 +22950,12 @@ class MainView extends _reactDefault.default.Component {
                             }
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 125,
+                            lineNumber: 133,
                             columnNumber: 18
                         }, this)
                     }, void 0, false, {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 124,
+                        lineNumber: 132,
                         columnNumber: 19
                     }, this) : movies.map((movie1)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
                             md: 3,
@@ -22957,24 +22966,24 @@ class MainView extends _reactDefault.default.Component {
                                 }
                             }, movie1._id, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 131,
+                                lineNumber: 139,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 130,
+                            lineNumber: 138,
                             columnNumber: 11
                         }, this)
                     )
                 }, void 0, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 121,
+                    lineNumber: 129,
                     columnNumber: 7
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 113,
+            lineNumber: 120,
             columnNumber: 5
         }, this));
     // if (!register) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)}/>);
@@ -29445,6 +29454,7 @@ function LoginView(props) {
         }
         return isReq;
     };
+    // onLoggedIn
     const handleSubmit = (e)=>{
         e.preventDefault();
         const isReq = validate();
