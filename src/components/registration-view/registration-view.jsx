@@ -61,7 +61,8 @@ const handleSubmit = (e) => {
     props.onLoggedIn(data);
   })
   .catch(e => {
-    console.log('no such user')
+    console.error(response);
+    alert('unable to register');
     });
   }
 };
@@ -79,28 +80,28 @@ const handleSubmit = (e) => {
               <Form.Label>Username</Form.Label>
               <br/>
                 <Form.Control type="text" value={Username} onChange={e => setUsername(e.target.value)} placeholder="Enter username"  />
-                {usernameErr && <p>{usernameErr}</p>}
+                {Values.usernameErr && <p>{Values.usernameErr}</p>}
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
               <br/>
                 <Form.Control type="password" value={Password} onChange={e => setPassword(e.target.value)} placeholder="Enter password"/>
-                {passwordErr && <p>{passwordErr}</p>}
+                {Values.passwordErr && <p>{Values.passwordErr}</p>}
               </Form.Group>
              
               <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email</Form.Label>
               <br/>
                 <Form.Control type="Email" value={Email} onChange={e => setEmail(e.target.value)} placeholder="Enter email"/>
-                {emailErr && <p>{emailErr}</p>}
+                {Values.emailErr && <p>{Values.emailErr}</p>}
               </Form.Group>
               
               <Form.Group className="mb-3" controlId="formBasicBirthday">
               <Form.Label>Birthday</Form.Label>
               <br/>
                 <Form.Control  type="birthday" value={Birthday} onChange={e => setBirthday(e.target.value)} placeholder="mth/d/yr"/>
-                {birthdayErr && <p>{birthdayErr}</p>}
+                {Values.birthdayErr && <p>{Values.birthdayErr}</p>}
               </Form.Group>
               <br/>
               <Button variant="outline-primary" size ="lg" type="submit" onClick={handleSubmit}>Register</Button>
