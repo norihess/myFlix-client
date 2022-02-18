@@ -95,17 +95,17 @@ export class MainView extends React.Component{
     })
   }
 
-  setRegister = () => {
-    this.setState({
-      register: true
-    })
-  }
+  // setRegister = () => {
+  //   this.setState({
+  //     register: true
+  //   })
+  // }
 
 	render() {
     const { movies, selectedMovie, register, token} = this.state;
     console.log(this.state)
-
-    if (!token && !register) return <LoginView onLoggedIn={(user, pass) => this.onLoggedIn(user, pass)} setRegister={this.setRegister} />;
+    
+    if (!token && !register) return <LoginView onLoggedIn={(user, password) => this.onLoggedIn(user, password)} setRegister={this.setRegister} />;
 
     else if (register && !token) return <RegistrationView onRegistration={(register) => this.onRegistration(register)}/>;
 
