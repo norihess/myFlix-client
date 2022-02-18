@@ -95,11 +95,11 @@ export class MainView extends React.Component{
     })
   }
 
-  // setRegister = () => {
-  //   this.setState({
-  //     register: true
-  //   })
-  // }
+  setRegister = () => {
+    this.setState({
+      register: true
+    })
+  }
 
 	render() {
     const { movies, selectedMovie, register, token} = this.state;

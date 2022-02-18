@@ -5,33 +5,36 @@ import {Form, Button, Container, Row, Col, Card, CardGroup} from 'react-bootstra
 
 export function RegistrationView(props) {
   const [ Username, setUsername ] = useState('');
-  const [ Username, setUsernameErr ] = useState('');
+  const [ username, setUsernameErr ] = useState('');
   const [ Password, setPassword ] = useState('');
-  const [ Password, setPasswordErr ] = useState('');
+  const [ password, setPasswordErr ] = useState('');
   const [ Email, setEmail ] = useState('');
-  const [ Email, setEmailErr ] = useState('');
+  const [ email, setEmailErr ] = useState('');
   const [ Birthday, setBirthday ] = useState('');
-  const [ Birthday, setBirthdayErr ] = useState('');
+  const [ birthday, setBirthdayErr ] = useState('');
 
   //validate user inputs
 const validate = () => {
   let isReq = true;
-  if(!username) {
+  if(!Username) {
     setUsernameErr ('Username Required');
     isReq = false;
-  }
-  if(!email){
+  }else if(Username.length < 2){
+    setUsernameErr('Username must be 2 characters long');
+    isReq = false;
+   }
+  if(!Email){
     setEmailErr ('Must have a valid email');
     isReq = false;
   }
-  if(!birdthday){
+  if(!Birdthday){
     setBirthdayErr('Birthday Required')
     isReq = false;
   }
-  if(!password) {
+  if(!Password) {
     setPasswordErr ('Password Required');
     isReq = false;
-  } else if (password.legth < 6) {
+  } else if (Password.length < 6) {
     setPasswordErr ('Password must be 6 characters long');
     isReq = false;
   }

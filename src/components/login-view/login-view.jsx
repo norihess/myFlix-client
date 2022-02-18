@@ -16,14 +16,17 @@ export function LoginView(props) {
 //validate user inputs
 const validate = () => {
   let isReq = true;
-  if(!username) {
+  if(!Username) {
     setUsernameErr ('Username Required');
     isReq = false;
-  }
-  if(!password) {
+  }else if(Username.length < 2){
+    setUsernameErr('Username must be 2 characters long');
+    isReq = false;
+   }
+  if(!Password) {
     setPasswordErr ('Password Required');
     isReq = false;
-  } else if (password.legth < 6) {
+  } else if (Password.length < 6) {
     setPasswordErr ('Password must be 6 characters long');
     isReq = false;
   }
