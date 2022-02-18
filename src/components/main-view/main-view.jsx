@@ -39,11 +39,11 @@ export class MainView extends React.Component{
   //       console.log(error);
   //     })
   // }
-	// setSelectedMovie(movie) {
-  //   this.setState({
-  //     selectedMovie: movie
-  //   });
-  // }
+	setSelectedMovie(movie) {
+    this.setState({
+      selectedMovie: movie
+    });
+  }
   
   getMovies(token) {
     axios.get(`https://nori-myflixdb.herokuapp.com/movies`, {
@@ -59,16 +59,16 @@ export class MainView extends React.Component{
       console.log(error);
     });
   }
-  onLoggedIn(username, pass) {
-    console.log(username, pass)
-    axios.post(`https://nori-myflixdb.herokuapp.com/login?Username=${username}&Password=${pass}`)
-    .then(response => {
-      console.log(response)
-      this.setState({
-        token: response.data.token
-      });
-    })
-  }
+  // onLoggedIn(username, pass) {
+  //   console.log(username, pass)
+  //   axios.post(`https://nori-myflixdb.herokuapp.com/login?Username=${username}&Password=${pass}`)
+  //   .then(response => {
+  //     console.log(response)
+  //     this.setState({
+  //       token: response.data.token
+  //     });
+  //   })
+  // }
 
   onLoggedIn(authData) {
     console.log(authData);
@@ -105,7 +105,7 @@ export class MainView extends React.Component{
     const { movies, selectedMovie, register, token} = this.state;
     console.log(this.state)
 
-    if (!token && !register ) return <LoginView onLoggedIn={(user, pass) => this.onLoggedIn(user, pass)} setRegister={this.setRegister} />;
+    if (!token && !register) return <LoginView onLoggedIn={(user, pass) => this.onLoggedIn(user, pass)} setRegister={this.setRegister} />;
 
     else if (register && !token) return <RegistrationView onRegistration={(register) => this.onRegistration(register)}/>;
 

@@ -11,24 +11,28 @@ export function LoginView(props) {
   const [ Username, setUsername ] = useState('');
   const [ Password, setPassword ] = useState('');
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   axios.post(`https://nori-myflixdb.herokuapp.com/login?Username=${username}&Password=${pass}`)
-  //   .then(response => {
-  //     const data = response.data;
-  //   props.onLoggedIn(data);
-  // })
-  // .catch(e => {
-  //   console.log('no such user')
-  //   });
-  // };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(Username, Password);
     /* Send a request to the server for authentication */
-    /* then call props.onLoggedIn(username) */
-    props.onLoggedIn(Username, Password);
+    axios.post(`https://nori-myflixdb.herokuapp.com/login`, {
+      Username: Username,
+      Password: Password
+    })
+    .then(response => {
+      const data = response.data;
+      props.onLoggedIn(data);
+    })
+    .catch(e => {
+      console.log('no such user')
+    });
   };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log(Username, Password);
+  //   /* Send a request to the server for authentication */
+  //   /* then call props.onLoggedIn(username) */
+  //   props.onLoggedIn(Username, Password);
+  // };
 
   return (
     <Container>
