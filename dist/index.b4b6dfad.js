@@ -23069,27 +23069,6 @@ class MainView extends _reactDefault.default.Component {
                         fileName: "src/components/main-view/main-view.jsx",
                         lineNumber: 162,
                         columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
-                        path: "/profile",
-                        render: ({ history  })=>{
-                            if (!user1) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
-                                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_loginView.LoginView, {
-                                    onLoggedIn: (user)=>this.onLoggedIn(user)
-                                }, void 0, false, void 0, void 0)
-                            }, void 0, false, void 0, void 0));
-                            return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
-                                md: 8,
-                                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(ProfileView, {
-                                    movies: movies,
-                                    onBackClick: ()=>history.goBack()
-                                }, void 0, false, void 0, void 0)
-                            }, void 0, false, void 0, void 0));
-                        }
-                    }, void 0, false, {
-                        fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 163,
-                        columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {

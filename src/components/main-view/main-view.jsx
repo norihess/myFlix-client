@@ -40,7 +40,7 @@ export class MainView extends React.Component{
   //       console.log(error);
   //     })
   // }
-
+  
 	setSelectedMovie(movie) {
     this.setState({
       selectedMovie: movie
@@ -160,21 +160,6 @@ export class MainView extends React.Component{
         <Route exact path="/" element={<LoginView onLoggedIn={(user, password) => this.onLoggedIn(user, password)} setRegister={this.setRegister} />} />
         <Route exact path="/register" element={<RegistrationView onRegistration={(register) => this.onRegistration(register)}/> } />
         <Route exact path="/movies" element={ <this.MovieList movies={movies} selectedMovie={selectedMovie} />}/>
-        <Route path="/profile" render={({ history }) => {
-                            if (!user) {
-                                return (
-                                    <Col>
-                                        <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
-                                    </Col>
-                                );
-                            }
-
-                            return (
-                                <Col md={8}>
-                                    <ProfileView movies={movies} onBackClick={() => history.goBack()} />
-                                </Col>
-                            );
-                        }} />
       </Routes>
     </BrowserRouter>)
 
