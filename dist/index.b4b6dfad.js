@@ -29812,7 +29812,30 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _reactBootstrap = require("react-bootstrap");
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
 class MovieCard extends _reactDefault.default.Component {
+    state = {
+        genre: ''
+    };
+    fetchGenre = (genre)=>{
+        _axiosDefault.default.get(`https://nori-myflixdb.herokuapp.com/genre/${genre}`, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        }).then((response)=>{
+            console.log(response.data);
+            // Assign the result to the state
+            this.setState({
+                genre: response.data
+            });
+            //modal code
+            let str = "Genre: " + this.state.genre.Name + "\n" + "Description: " + this.state.genre.Description;
+            alert(str);
+        }).catch(function(error) {
+            console.log(error);
+        });
+    };
     render() {
         const { movie , onMovieClick  } = this.props;
         return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.CardGroup, {
@@ -29832,18 +29855,18 @@ class MovieCard extends _reactDefault.default.Component {
                                 children: movie.Title
                             }, void 0, false, {
                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 13,
+                                lineNumber: 38,
                                 columnNumber: 9
                             }, this)
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 12,
+                            lineNumber: 37,
                             columnNumber: 7
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("br", {
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 15,
+                            lineNumber: 40,
                             columnNumber: 7
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Img, {
@@ -29851,23 +29874,73 @@ class MovieCard extends _reactDefault.default.Component {
                             src: movie.ImagePath
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 16,
+                            lineNumber: 41,
+                            columnNumber: 7
+                        }, this),
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
+                            children: [
+                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("b", {
+                                    children: "Director:"
+                                }, void 0, false, {
+                                    fileName: "src/components/movie-card/movie-card.jsx",
+                                    lineNumber: 42,
+                                    columnNumber: 10
+                                }, this),
+                                " ",
+                                movie.Director.Name
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/movie-card/movie-card.jsx",
+                            lineNumber: 42,
+                            columnNumber: 7
+                        }, this),
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
+                            children: [
+                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("b", {
+                                    children: "Genre:"
+                                }, void 0, false, {
+                                    fileName: "src/components/movie-card/movie-card.jsx",
+                                    lineNumber: 43,
+                                    columnNumber: 10
+                                }, this),
+                                " ",
+                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("a", {
+                                    href: "#",
+                                    onClick: ()=>this.fetchGenre(movie.Genre.Name)
+                                    ,
+                                    children: movie.Genre.Name
+                                }, void 0, false, {
+                                    fileName: "src/components/movie-card/movie-card.jsx",
+                                    lineNumber: 43,
+                                    columnNumber: 24
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/movie-card/movie-card.jsx",
+                            lineNumber: 43,
+                            columnNumber: 7
+                        }, this),
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
+                            children: movie.Description
+                        }, void 0, false, {
+                            fileName: "src/components/movie-card/movie-card.jsx",
+                            lineNumber: 44,
                             columnNumber: 7
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 11,
+                    lineNumber: 36,
                     columnNumber: 7
                 }, this)
             }, void 0, false, {
                 fileName: "src/components/movie-card/movie-card.jsx",
-                lineNumber: 10,
+                lineNumber: 35,
                 columnNumber: 7
             }, this)
         }, void 0, false, {
             fileName: "src/components/movie-card/movie-card.jsx",
-            lineNumber: 9,
+            lineNumber: 34,
             columnNumber: 7
         }, this));
     }
@@ -29878,7 +29951,7 @@ class MovieCard extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"ggaUx":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","axios":"jo6P5"}],"ggaUx":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$e9f6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
