@@ -134,7 +134,10 @@ export class MainView extends React.Component{
     <this.NavBar />
 
     <Row className="main-view justify-content-md-center">
-       { props.movies.map( movie => (
+       { props.selectedMovie
+           ? <MovieView movie={props.selectedMovie} onBackClick={newSelectedMovie => 
+		 				{ this.setSelectedMovie(newSelectedMovie); }}/>
+       : props.movies.map( movie => (
         <Col md={3}> <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => 
          { this.setSelectedMovie(movie) }}/>
          </Col>
@@ -151,7 +154,7 @@ export class MainView extends React.Component{
       <Routes>
         <Route exact path="/" element={<LoginView onLoggedIn={(user, password) => this.onLoggedIn(user, password)} setRegister={this.setRegister} />} />
         <Route exact path="/register" element={<RegistrationView onRegistration={(register) => this.onRegistration(register)}/> } />
-        <Route exact path="/movies" element={ <this.MovieList movies={movies} />}/>
+        <Route exact path="/movies" element={ <this.MovieList movies={movies} selectedMovie={selectedMovie} />}/>
       </Routes>
     </BrowserRouter>)
 
