@@ -109,6 +109,14 @@ export class MainView extends React.Component{
     })
   }
 
+  MovieList = (props) =>
+  (<div className="main-view">
+       { props.movies.map( movie => (
+         <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => 
+         { this.setSelectedMovie(movie) }}/>
+     )) }
+   </div>)
+
 	render() {
     const { movies, selectedMovie, register, token} = this.state;
     console.log(this.state)
@@ -117,14 +125,7 @@ export class MainView extends React.Component{
       <Routes>
         <Route exact path="/" element={<LoginView onLoggedIn={(user, password) => this.onLoggedIn(user, password)} setRegister={this.setRegister} />} />
         <Route exact path="/register" element={<RegistrationView onRegistration={(register) => this.onRegistration(register)}/> } />
-        <Route exact path="/movies" render={ () =>
-            (<div className="main-view">
-                 { movies.map( movie => (
-                   <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => 
-         					{ this.setSelectedMovie(movie) }}/>
-               )) }
-             </div>)
-        }/>
+        <Route exact path="/movies" element={ <this.MovieList movies={movies} />}/>
       </Routes>
     </BrowserRouter>)
 
