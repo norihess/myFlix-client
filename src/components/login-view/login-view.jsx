@@ -40,6 +40,7 @@ const validate = () => {
     /* Send a request to the server for authentication */
     axios.post("https://nori-myflixdb.herokuapp.com/login", {Username, Password})
     .then(response => {
+      console.log(response)
       const data = response.data;
       props.onLoggedIn(data);
       window.location.replace("/movies")
@@ -65,7 +66,7 @@ const validate = () => {
          <Card className = "log">
             <Card.Body className = "log">
             <Card.Title><h2>LOGIN</h2></Card.Title>
-            <form>
+            <form onSubmit={handleSubmit}>
               <Form.Group className="mb-3" controlId="formBasicUsername">
               <Form.Label>Username</Form.Label>
               <br/>
@@ -80,7 +81,7 @@ const validate = () => {
                 {passwordErr && <p>{passwordErr}</p>}
               </Form.Group>
               <br/>
-              <Button variant="outline-primary" size ="lg" type="submit" onClick={handleSubmit}>Log in</Button>
+              <Button variant="outline-primary" size ="lg" type="submit" >Log in</Button>
               <Button variant="outline-primary" size ="lg" type="button" onClick={()=>props.setRegister()}>Register</Button>
               </form>
               </Card.Body>

@@ -109,13 +109,39 @@ export class MainView extends React.Component{
     })
   }
 
+  NavBar = () => {
+    return (
+      <Nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">MovieFlix</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a onClick={()=>{
+        localStorage.setItem("user", "");
+        localStorage.setItem("token", "");
+        window.location.replace("/");
+      }}>Log out</a></li>
+    </ul>
+  </div>
+</Nav>
+    )
+  }
+
   MovieList = (props) =>
   (<div className="main-view">
+
+    <this.NavBar />
+
+    <Row className="main-view justify-content-md-center">
        { props.movies.map( movie => (
-         <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => 
+        <Col md={3}> <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => 
          { this.setSelectedMovie(movie) }}/>
+         </Col>
      )) }
+     </Row>
    </div>)
+   
 
 	render() {
     const { movies, selectedMovie, register, token} = this.state;
