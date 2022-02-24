@@ -1,5 +1,9 @@
 import React from 'react';
-import {Form, Button, Container, Row, Col, Card, CardGroup} from 'react-bootstrap';
+import axios from 'axios';
+import './movie-view.scss';
+
+import { Form, Button, Container, Row, Col, Card, CardGroup, Nav } from 'react-bootstrap';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 export class MovieView extends React.Component {
 
@@ -17,12 +21,13 @@ export class MovieView extends React.Component {
     const { movie, onBackClick } = this.props;
 
     return (
-      <Card>
+      <Card style={{width: '450px'}}>
         <Card.Img variant="top" src={movie.ImagePath}/>
         <Card.Body>
           <Card.Title>{movie.Title}</Card.Title>
           <Card.Text>{movie.Description}</Card.Text>
           <Button variant="outline-primary" size ="lg" type="button" onClick ={() => {onBackClick(null);}}>Back</Button>
+          <Button variant="outline-primary" size ="lg" type="button" onClick ={() => {onClick(null);}}>Add to Favorites</Button>
         </Card.Body>
       </Card>
     );

@@ -74,7 +74,7 @@ const handleSubmit = (e) => {
             <Card className = "reg">
               <Card.Body className = "reg">
               <Card.Title><h2>REGISTER NOW</h2></Card.Title>
-              <Form className = "form">
+              <Form className = "form" onSubmit={handleSubmit}>
               <Form.Group className="mb-3" controlId="formBasicUsername">
               <Form.Label>Username</Form.Label>
               <br/>
@@ -103,7 +103,7 @@ const handleSubmit = (e) => {
                 {Values.birthdayErr && <p>{Values.birthdayErr}</p>}
               </Form.Group>
               <br/>
-              <Button variant="outline-primary" size ="lg" type="submit" onClick={handleSubmit}>Register</Button>
+              <Button variant="outline-primary" size ="lg" type="submit">Register</Button>
               <Button variant="outline-primary" size ="lg" type="button" onClick={()=>window.location.replace("./")}>Login</Button>
               </Form>
               </Card.Body>

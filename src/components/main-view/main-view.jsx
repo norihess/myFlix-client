@@ -40,6 +40,7 @@ export class MainView extends React.Component{
   //       console.log(error);
   //     })
   // }
+
 	setSelectedMovie(movie) {
     this.setState({
       selectedMovie: movie
@@ -117,6 +118,10 @@ export class MainView extends React.Component{
       <a class="navbar-brand" href="#">MovieFlix</a>
     </div>
     <ul class="nav navbar-nav">
+    <li><a onClick={()=>{
+        window.location.replace("/profile");
+      }}>Edit Profile</a></li>
+    <li>Favorite Movies</li>
       <li><a onClick={()=>{
         localStorage.setItem("user", "");
         localStorage.setItem("token", "");
@@ -147,7 +152,7 @@ export class MainView extends React.Component{
    
 
 	render() {
-    const { movies, selectedMovie, register, token} = this.state;
+    const { movies, selectedMovie, register, token, user} = this.state;
     console.log(this.state)
     
     return (<BrowserRouter>
@@ -155,6 +160,21 @@ export class MainView extends React.Component{
         <Route exact path="/" element={<LoginView onLoggedIn={(user, password) => this.onLoggedIn(user, password)} setRegister={this.setRegister} />} />
         <Route exact path="/register" element={<RegistrationView onRegistration={(register) => this.onRegistration(register)}/> } />
         <Route exact path="/movies" element={ <this.MovieList movies={movies} selectedMovie={selectedMovie} />}/>
+        <Route path="/profile" render={({ history }) => {
+                            if (!user) {
+                                return (
+                                    <Col>
+                                        <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+                                    </Col>
+                                );
+                            }
+
+                            return (
+                                <Col md={8}>
+                                    <ProfileView movies={movies} onBackClick={() => history.goBack()} />
+                                </Col>
+                            );
+                        }} />
       </Routes>
     </BrowserRouter>)
 
