@@ -38,10 +38,11 @@ const validate = () => {
     const isReq = validate();
     if (isReq) {
     /* Send a request to the server for authentication */
-    axios.post(`https://nori-myflixdb.herokuapp.com/login?Username=${username}&Password=${pass}`)
+    axios.post("https://nori-myflixdb.herokuapp.com/login", {Username, Password})
     .then(response => {
       const data = response.data;
       props.onLoggedIn(data);
+      window.location.replace("/movies")
     })
     .catch(e => {
       console.log('no such user')

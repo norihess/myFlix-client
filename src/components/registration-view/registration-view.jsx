@@ -57,7 +57,6 @@ const handleSubmit = (e) => {
     const data = response.data;
     console.log(data);
     alert('Registration successful, please login!');
-    window.open('/', '_self');
     props.onLoggedIn(data);
   })
   .catch(e => {
