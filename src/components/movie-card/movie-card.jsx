@@ -50,6 +50,11 @@ export class MovieCard extends React.Component {
       console.log(error);
     });
 
+    removeMovie = (movieId) => {
+      const Username = localStorage.getItem('user')
+      axios.delete(`http://localhost:8080/users/${Username}/movies/${movieId}`)
+    }
+
    }
 
 
@@ -63,10 +68,12 @@ export class MovieCard extends React.Component {
         <h4 style={{cursor: 'pointer'}} onClick={() => onMovieClick(movie)} className="movie-card">{movie.Title}</h4>
       </Card.Title>
       <br />
-      <Card.Img variant="top" src={movie.ImagePath}/>
+      <Card.Img variant="top" src={movie.ImagePath} style={{width: "250px"}}/>
+      <button onClick={() => this.removeMovie(movie._id)}>Remove from Favorites</button>
       <p><b>Director:</b><a href="#" onClick={() => this.fetchDirector(movie.Director.Name)}>{movie.Director.Name}</a></p>
       <p><b>Genre:</b> <a href="#" onClick={() => this.fetchGenre(movie.Genre.Name)}>{movie.Genre.Name}</a></p>
-      <p>{movie.Description}</p>
+      {/* <p>{movie.Description}</p> */}
+       
       </Card.Body> 
       </Card>
       </CardGroup>

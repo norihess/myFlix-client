@@ -103,7 +103,7 @@ const handleSubmit = (e) => {
                 {Values.birthdayErr && <p>{Values.birthdayErr}</p>}
               </Form.Group>
               <br/>
-              <Button variant="outline-primary" size ="lg" type="submit">Register</Button>
+              <Button variant="outline-primary" size ="lg" type="submit" onClick={()=>window.location.replace("/register")}>Register</Button>
               <Button variant="outline-primary" size ="lg" type="button" onClick={()=>window.location.replace("./")}>Login</Button>
               </Form>
               </Card.Body>

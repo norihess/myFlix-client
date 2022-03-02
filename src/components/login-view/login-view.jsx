@@ -82,7 +82,7 @@ const validate = () => {
               </Form.Group>
               <br/>
               <Button variant="outline-primary" size ="lg" type="submit" >Log in</Button>
-              <Button variant="outline-primary" size ="lg" type="button" onClick={()=>props.setRegister()}>Register</Button>
+              <Button variant="outline-primary" size ="lg" type="button" onClick={()=>window.location.replace("/register")}>Register</Button>
               </form>
               </Card.Body>
             </Card>

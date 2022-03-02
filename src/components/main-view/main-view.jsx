@@ -6,8 +6,10 @@ import { RegistrationView } from '../registration-view/registration-view';
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { FavoritesModal, EditUserModal } from '../profile-view/profile-view';
 import { Form, Button, Container, Row, Col, Card, CardGroup, Nav } from 'react-bootstrap';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Header from '../others/Header';
 
 
 export class MainView extends React.Component{
@@ -18,6 +20,7 @@ export class MainView extends React.Component{
       selectedMovie: null,
       user: null,
       register: false,
+      show: false
     };
   }
   componentDidMount() {
@@ -120,9 +123,9 @@ export class MainView extends React.Component{
     </div>
     <ul class="nav navbar-nav">
     <li><a onClick={()=>{
-        window.location.replace("/profile");
+        window.location.replace("/");
       }}>Edit Profile</a></li>
-    <li>Favorite Movies</li>
+    <li><a onClick={()=>this.setState({show: true})}>Favorite Movies</a></li>
       <li><a onClick={()=>{
         localStorage.setItem("user", "");
         localStorage.setItem("token", "");
@@ -137,7 +140,8 @@ export class MainView extends React.Component{
   MovieList = (props) =>
   (<div className="main-view">
 
-    <this.NavBar />
+    {/* <this.NavBar /> */}
+    <Header />
 
     <Row className="main-view justify-content-md-center">
        { props.selectedMovie
