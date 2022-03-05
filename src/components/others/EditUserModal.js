@@ -31,7 +31,7 @@ export default function EditUserModal(props) {
     const handleSubmit = (e) => {
       e.preventDefault();
       
-      axios.put(`https://notflixapi.herokuapp.com/users/${Username}`, 
+      axios.put(`https://nori-myflixdb.herokuapp.com/users/${Username}`, 
       {Username, Password, Email, BirthDate},
       {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
@@ -46,6 +46,27 @@ export default function EditUserModal(props) {
       })
       .catch(err=>console.log(err));
     };
+  
+   
+    onDeleteUser = (user) => {
+      const Username = localStorage.getItem('user');
+      const token = localStorage.getItem('token');
+      
+      axios.delete(`https://nori-myflixdb.herokuapp.com/users/${Username}`, {
+              headers: { Authorization: `Bearer ${token}` },
+          })
+          .then((response) => {
+              console.log(response);
+              alert("Profile deleted");
+              localStorage.removeItem('user');
+              localStorage.removeItem('token');
+              window.open('/', '_self');
+          })
+          .catch(function (error) {
+              console.log(error);
+          });
+        }
+      
 
     return (
         <>

@@ -20,7 +20,8 @@ export class MainView extends React.Component{
       selectedMovie: null,
       user: null,
       register: false,
-      show: false
+      show: false,
+      favMovies: [],
     };
   }
   componentDidMount() {
@@ -64,16 +65,7 @@ export class MainView extends React.Component{
       console.log(error);
     });
   }
-  // onLoggedIn(username, pass) {
-  //   console.log(username, pass)
-  //   axios.post(`https://nori-myflixdb.herokuapp.com/login?Username=${username}&Password=${pass}`)
-  //   .then(response => {
-  //     console.log(response)
-  //     this.setState({
-  //       token: response.data.token
-  //     });
-  //   })
-  // }
+
 
   onLoggedIn(authData) {
     console.log(authData);
@@ -114,28 +106,28 @@ export class MainView extends React.Component{
     })
   }
 
-  NavBar = () => {
-    return (
-      <Nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">MovieFlix</a>
-    </div>
-    <ul class="nav navbar-nav">
-    <li><a onClick={()=>{
-        window.location.replace("/");
-      }}>Edit Profile</a></li>
-    <li><a onClick={()=>this.setState({show: true})}>Favorite Movies</a></li>
-      <li><a onClick={()=>{
-        localStorage.setItem("user", "");
-        localStorage.setItem("token", "");
-        window.location.replace("/");
-      }}>Log out</a></li>
-    </ul>
-  </div>
-</Nav>
-    )
-  }
+//   NavBar = () => {
+//     return (
+//       <Nav class="navbar navbar-default">
+//   <div class="container-fluid">
+//     <div class="navbar-header">
+//       <a class="navbar-brand" href="#">MovieFlix</a>
+//     </div>
+//     <ul class="nav navbar-nav">
+//     <li><a onClick={()=>{
+//         window.location.replace("/");
+//       }}>Edit Profile</a></li>
+//     <li><a onClick={()=>this.setState({show: true})}>Favorite Movies</a></li>
+//       <li><a onClick={()=>{
+//         localStorage.setItem("user", "");
+//         localStorage.setItem("token", "");
+//         window.location.replace("/");
+//       }}>Log out</a></li>
+//     </ul>
+//   </div>
+// </Nav>
+//     )
+//   }
 
   MovieList = (props) =>
   (<div className="main-view">
@@ -164,7 +156,7 @@ export class MainView extends React.Component{
       <Routes>
         <Route exact path="/" element={<LoginView onLoggedIn={(user, password) => this.onLoggedIn(user, password)} setRegister={this.setRegister} />} />
         <Route exact path="/register" element={<RegistrationView onRegistration={(register) => this.onRegistration(register)}/> } />
-        <Route exact path="/movies" element={ <this.MovieList movies={movies} selectedMovie={selectedMovie} />}/>
+        <Route exact path="/movies" element={ <MovieList movies={movies} selectedMovie={selectedMovie} />}/>
       </Routes>
     </BrowserRouter>)
 

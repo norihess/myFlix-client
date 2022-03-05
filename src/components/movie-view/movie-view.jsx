@@ -17,6 +17,39 @@ export class MovieView extends React.Component {
     document.removeEventListener('keypress', this.keypressCallback);
   }
   
+
+  onRemoveFavorite = (e, movie) => {
+    e.preventDefault();
+    const Username = localStorage.getItem('user');
+    const token = localStorage.getItem('token');
+
+    axios.delete(
+            `https://nori-myflixdb.herokuapp.com/users/${Username}/movies/${movie._id}`,
+            {
+                headers: { Authorization: `Bearer ${token}` },
+            }
+        )
+        .then((response) => {
+            console.log(response);
+            alert("Movie removed");
+            this.componentDidMount();
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+};
+
+  addMovieToFav = (movieId) => {
+   console.log(movieId)
+   const Username = localStorage.getItem('user')
+    axios.post(`https://nori-myflixdb.herokuapp.com/users/${Username}/movies/${movieId}`)
+    .then(response=> { 
+      if(response.data){alert('Added!')
+    }
+    })
+    .catch(err=>console.log(err))
+  }
+
   render() {
     const { movie, onBackClick } = this.props;
 
@@ -27,8 +60,9 @@ export class MovieView extends React.Component {
           <Card.Title>{movie.Title}</Card.Title>
           <Card.Text>{movie.Description}</Card.Text>
           <Button variant="outline-primary" size ="lg" type="button" onClick ={() => {onBackClick(null);}}>Back</Button>
-          <Button variant="outline-primary" size ="lg" type="button" onClick ={() => {onClick(null);}}>Add to Favorites</Button>
-        </Card.Body>
+          <Button variant="outline-primary" size ="lg" type="button" onClick ={() => this.addMovieToFav(movie._id)}>Add to Favorites</Button>
+          <Button onClick={() => this.removeMovie(movie._id)}>Remove from Favorites</Button>
+          </Card.Body>
       </Card>
     );
   }
