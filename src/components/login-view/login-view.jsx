@@ -42,8 +42,9 @@ const validate = () => {
     .then(response => {
       console.log(response)
       const data = response.data;
+      console.log(data)
       props.onLoggedIn(data);
-      window.location.replace("/movies")
+      //window.location.replace("/movies")
     })
     .catch(e => {
       console.log('no such user')

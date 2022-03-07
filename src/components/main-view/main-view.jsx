@@ -4,8 +4,8 @@ import './main-view.scss';
 
 import { RegistrationView } from '../registration-view/registration-view';
 import { LoginView } from '../login-view/login-view';
-import { MovieCard } from '../movie-card/movie-card';
-import { MovieView } from '../movie-view/movie-view';
+import MovieCard  from '../movie-card/movie-card';
+import MovieView from '../movie-view/movie-view';
 import { FavoritesModal, EditUserModal } from '../profile-view/profile-view';
 import { Form, Button, Container, Row, Col, Card, CardGroup, Nav } from 'react-bootstrap';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -130,7 +130,9 @@ export class MainView extends React.Component{
 //   }
 
   MovieList = (props) =>
-  (<div className="main-view">
+  {
+    console.log(props);
+  return (<div className="main-view">
 
     {/* <this.NavBar /> */}
     <Header />
@@ -138,15 +140,15 @@ export class MainView extends React.Component{
     <Row className="main-view justify-content-md-center">
        { props.selectedMovie
            ? <MovieView movie={props.selectedMovie} onBackClick={newSelectedMovie => 
-		 				{ this.setSelectedMovie(newSelectedMovie); }}/>
+		 				{ props.setSelectedMovie(newSelectedMovie); }}/>
        : props.movies.map( movie => (
         <Col md={3}> <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => 
-         { this.setSelectedMovie(movie) }}/>
+         { props.setSelectedMovie(movie) }}/>
          </Col>
      )) }
      </Row>
    </div>)
-   
+  }
 
 	render() {
     const { movies, selectedMovie, register, token, user} = this.state;
@@ -154,9 +156,9 @@ export class MainView extends React.Component{
     
     return (<BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<LoginView onLoggedIn={(user, password) => this.onLoggedIn(user, password)} setRegister={this.setRegister} />} />
+        <Route exact path="/" element={<LoginView onLoggedIn={(dt) => this.onLoggedIn(dt)} setRegister={this.setRegister} />} />
         <Route exact path="/register" element={<RegistrationView onRegistration={(register) => this.onRegistration(register)}/> } />
-        <Route exact path="/movies" element={ <MovieList movies={movies} selectedMovie={selectedMovie} />}/>
+        <Route exact path="/movies" element={ <this.MovieList movies={movies} selectedMovie={selectedMovie} />}/>
       </Routes>
     </BrowserRouter>)
 

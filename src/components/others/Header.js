@@ -22,8 +22,7 @@ export default function Header() {
     })
     .then(response => {
       // Assign the result to the state
-      setMovies(response.data);
-
+      
       console.log(response.data)
     
       axios
