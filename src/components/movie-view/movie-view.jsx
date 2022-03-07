@@ -5,7 +5,7 @@ import './movie-view.scss';
 import { Form, Button, Container, Row, Col, Card, CardGroup, Nav } from 'react-bootstrap';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-export class MovieView extends React.Component {
+export default class MovieView extends React.Component {
 
   keypressCallback(event) {
     console.log(event.key);

@@ -2,8 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import './main-view.scss';
 
-import { RegistrationView } from '../registration-view/registration-view';
-import { LoginView } from '../login-view/login-view';
+import {RegistrationView} from '../registration-view/registration-view';
+import {LoginView} from '../login-view/login-view';
 import MovieCard  from '../movie-card/movie-card';
 import MovieView from '../movie-view/movie-view';
 import { FavoritesModal, EditUserModal } from '../profile-view/profile-view';
@@ -140,10 +140,10 @@ export class MainView extends React.Component{
     <Row className="main-view justify-content-md-center">
        { props.selectedMovie
            ? <MovieView movie={props.selectedMovie} onBackClick={newSelectedMovie => 
-		 				{ props.setSelectedMovie(newSelectedMovie); }}/>
+		 				{ this.setSelectedMovie(newSelectedMovie); }}/>
        : props.movies.map( movie => (
         <Col md={3}> <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => 
-         { props.setSelectedMovie(movie) }}/>
+         { this.setSelectedMovie(movie) }}/>
          </Col>
      )) }
      </Row>
