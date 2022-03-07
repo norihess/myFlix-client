@@ -53,6 +53,25 @@ export default class MovieCard extends React.Component {
 
    }
 
+   onRemoveFavorite = (id) => {
+    const Username = localStorage.getItem('user');
+    const token = localStorage.getItem('token');
+
+    axios.delete(
+            `https://nori-myflixdb.herokuapp.com/users/${Username}/movies/${id}`,
+            {
+                headers: { Authorization: `Bearer ${token}` },
+            }
+        )
+        .then((response) => {
+            console.log(response);
+            alert("Movie removed");
+         })
+        .catch(function (error) {
+            console.log(error);
+        });
+};
+
 
   render() {
     const { movie, onMovieClick } = this.props;
@@ -65,10 +84,12 @@ export default class MovieCard extends React.Component {
       </Card.Title>
       <br />
       <Card.Img variant="top" src={movie.ImagePath} style={{width: "250px"}}/>
-      <p><b>Director:</b><a href="#" onClick={() => this.fetchDirector(movie.Director.Name)}>{movie.Director.Name}</a></p>
-      <p><b>Genre:</b> <a href="#" onClick={() => this.fetchGenre(movie.Genre.Name)}>{movie.Genre.Name}</a></p>
+      <b>Director:</b><a href="#" onClick={() => this.fetchDirector(movie.Director.Name)}>{movie.Director.Name}</a>
+      <br/>
+      <b>Genre:</b> <a href="#" onClick={() => this.fetchGenre(movie.Genre.Name)}>{movie.Genre.Name}</a>
+      <br/>
       {/* <p>{movie.Description}</p> */}
-       
+      <a href="#" onClick={()=>this.onRemoveFavorite(movie._id)}>Remove</a>
       </Card.Body> 
       </Card>
       </CardGroup>

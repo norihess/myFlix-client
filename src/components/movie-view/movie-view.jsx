@@ -16,28 +16,6 @@ export default class MovieView extends React.Component {
   componentWillUnmount() {
     document.removeEventListener('keypress', this.keypressCallback);
   }
-  
-
-  onRemoveFavorite = (e, movie) => {
-    e.preventDefault();
-    const Username = localStorage.getItem('user');
-    const token = localStorage.getItem('token');
-
-    axios.delete(
-            `https://nori-myflixdb.herokuapp.com/users/${Username}/movies/${movie._id}`,
-            {
-                headers: { Authorization: `Bearer ${token}` },
-            }
-        )
-        .then((response) => {
-            console.log(response);
-            alert("Movie removed");
-            this.componentDidMount();
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-};
 
   addMovieToFav = (movieId) => {
    console.log(movieId)
