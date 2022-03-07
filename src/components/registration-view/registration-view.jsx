@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-
+import axios from 'axios';
 import {Form, Button, Container, Row, Col, Card, CardGroup} from 'react-bootstrap';
 
 export function RegistrationView(props) {
@@ -57,7 +57,8 @@ const handleSubmit = (e) => {
     const data = response.data;
     console.log(data);
     alert('Registration successful, please login!');
-    props.onLoggedIn(data);
+    window.location.replace("/");
+    // props.onLoggedIn(data);
   })
   .catch(e => {
     console.error(response);
@@ -103,7 +104,7 @@ const handleSubmit = (e) => {
                 {Values.birthdayErr && <p>{Values.birthdayErr}</p>}
               </Form.Group>
               <br/>
-              <Button variant="outline-primary" size ="lg" type="submit" onClick={()=>window.location.replace("/register")}>Register</Button>
+              <Button variant="outline-primary" size ="lg" type="submit">Register</Button>
               <Button variant="outline-primary" size ="lg" type="button" onClick={()=>window.location.replace("./")}>Login</Button>
               </Form>
               </Card.Body>

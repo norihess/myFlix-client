@@ -62,18 +62,31 @@ export default function Header() {
     navigate("/");
 }
 
-const deleteUser = () => {
-  //send axios call to delte user
-  axios.delete('http://localhost:8080/users/')
-  .then(res=>alert("User Deleted!"))
-  .catch(err=>console.log(err))
+deleteUser = () => {
+  const Username = localStorage.getItem('user');
+  const token = localStorage.getItem('token');
+  
+  axios.delete(`https://nori-myflixdb.herokuapp.com/users/${Username}`, {
+          headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+          console.log(response);
+          alert("Profile deleted");
+          localStorage.removeItem('user');
+          localStorage.removeItem('token');
+          window.open('/', '_self');
+      })
+      .catch(function (error) {
+          console.log(error);
+      });
 }
+
   return <header>
         <h1>Welcome {user.Username}</h1>
         <div style={{float: 'right', marginTop: '-50px'}}>
         <EditUserModal/>
         <FavoritesModal favMovies={favMovies}/>
-        <button onClick={deleteUser} href='#'>
+        <button onClick={()=>deleteUser()} href='#'>
             Delete User
         </button>
         <button onClick={logOut} href='#'>
