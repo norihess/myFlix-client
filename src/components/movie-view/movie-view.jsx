@@ -39,7 +39,7 @@ export default class MovieView extends React.Component {
           <Card.Text>{movie.Description}</Card.Text>
           <Button variant="outline-primary" size ="lg" type="button" onClick ={() => {onBackClick(null);}}>Back</Button>
           <Button variant="outline-primary" size ="lg" type="button" onClick ={() => this.addMovieToFav(movie._id)}>Add to Favorites</Button>
-          <Button onClick={() => this.removeMovie(movie._id)}>Remove from Favorites</Button>
+          {/* <Button onClick={() => this.removeMovie(movie._id)}>Remove from Favorites</Button> */}
           </Card.Body>
       </Card>
     );
