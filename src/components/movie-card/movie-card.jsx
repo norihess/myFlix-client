@@ -77,7 +77,7 @@ export default class MovieCard extends React.Component {
     const { movie, onMovieClick } = this.props;
     return (
       <CardGroup className ="movie">
-      <Card style={{width: '450px', height: '550px', overflow: 'hidden', marginBottom: '20px'}} >
+      <Card style={{width: '450px', height: '570px', overflow: 'hidden', marginBottom: '20px'}} >
       <Card.Body className="movie">
       <Card.Title>
         <h4 style={{cursor: 'pointer'}} onClick={() => onMovieClick(movie)} className="movie-card">{movie.Title}</h4>
@@ -87,9 +87,9 @@ export default class MovieCard extends React.Component {
       <b>Director:</b><a href="#" onClick={() => this.fetchDirector(movie.Director.Name)}>{movie.Director.Name}</a>
       <br/>
       <b>Genre:</b> <a href="#" onClick={() => this.fetchGenre(movie.Genre.Name)}>{movie.Genre.Name}</a>
-      <br/>
+      <br/><br/>
       {/* <p>{movie.Description}</p> */}
-      <a href="#" onClick={()=>this.onRemoveFavorite(movie._id)}>Remove</a>
+      <a href="#" onClick={()=>this.onRemoveFavorite(movie._id)}>Remove from Favorties</a>
       </Card.Body> 
       </Card>
       </CardGroup>

@@ -31830,7 +31830,7 @@ class MovieCard extends _reactDefault.default.Component {
             children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card, {
                 style: {
                     width: '450px',
-                    height: '550px',
+                    height: '570px',
                     overflow: 'hidden',
                     marginBottom: '20px'
                 },
@@ -31920,11 +31920,17 @@ class MovieCard extends _reactDefault.default.Component {
                             lineNumber: 90,
                             columnNumber: 7
                         }, this),
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("br", {
+                        }, void 0, false, {
+                            fileName: "src/components/movie-card/movie-card.jsx",
+                            lineNumber: 90,
+                            columnNumber: 12
+                        }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("a", {
                             href: "#",
                             onClick: ()=>this.onRemoveFavorite(movie._id)
                             ,
-                            children: "Remove"
+                            children: "Remove from Favorties"
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
                             lineNumber: 92,

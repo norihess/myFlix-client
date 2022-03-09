@@ -17,19 +17,19 @@ export class DirectorView extends React.Component {
                         <Card.Title>Director</Card.Title>
                         <Card.Text>
                             <span className="label">Name: </span>
-                            <span className="value">{director.Name}</span>
+                            <span className="value">{Director.Name}</span>
                         </Card.Text>
                         <Card.Text>
                             <span className="label">Bio: </span>
-                            <span className="value">{director.Bio}</span>
+                            <span className="value">{Director.Bio}</span>
                         </Card.Text>
                         <Card.Text>
                             <span className="label">Birth: </span>
-                            <span className="value">{director.Birth}</span>
+                            <span className="value">{Director.Birth}</span>
                         </Card.Text>
                         <Card.Text>
                             <span className="label">Death: </span>
-                            <span className="value">{director.Death}</span>
+                            <span className="value">{Director.Death}</span>
                         </Card.Text>
 
                         <Button variant="outline-light" onClick={() => { onBackClick(); }}>Back</Button>
