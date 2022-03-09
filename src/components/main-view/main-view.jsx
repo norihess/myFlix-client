@@ -158,7 +158,50 @@ export class MainView extends React.Component{
       <Routes>
         <Route exact path="/" element={<LoginView onLoggedIn={(dt) => this.onLoggedIn(dt)} setRegister={this.setRegister} />} />
         <Route exact path="/register" element={<RegistrationView onRegistration={(register) => this.onRegistration(register)}/> } />
+        <Route path="/genres/:name" render={({ match, history }) => {
+                            if (!user) {
+                                return (
+                                    <Col>
+                                        <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+                                    </Col>
+                                );
+                            }
+
+
+                            if (movies.length === 0) {
+                                return <div className="main-view" />;
+                            }
+
+                            return (
+                                <Col md={8}>
+                                    <GenreView
+                                        genre={movies.find(m => m.Genre.Name === match.params.name).Genre}
+                                        onBackClick={() => history.goBack()}
+                                        movies={movies.filter(movie => movie.Genre.Name === match.params.name)}/>
+                                </Col>
+                            )
+                        }} />
         <Route exact path="/movies" element={ <this.MovieList movies={movies} selectedMovie={selectedMovie} />}/>
+        <Route path="/directors/:name" render={({ match, history }) => {
+                            if (!user) {
+                                return (
+                                    <Col>
+                                        <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+                                    </Col>
+                                );
+                            }
+
+                            if (movies.length === 0) return <div className="main-view" />;
+
+                            return (
+                                <Col md={8}>
+                                    <DirectorView
+                                        director={movies.find(m => m.Director.Name === match.params.name).Director}
+                                        onBackClick={() => history.goBack()}
+                                        movies={movies.filter(movie => movie.Director.Name === match.params.name)} />
+                                </Col>
+                            );
+                        }} />
       </Routes>
     </BrowserRouter>)
 
