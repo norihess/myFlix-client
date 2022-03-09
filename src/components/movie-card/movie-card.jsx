@@ -1,21 +1,98 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Form, Button, Container, Row, Col, Card, CardGroup} from 'react-bootstrap';
+import axios from 'axios';
 
-export class MovieCard extends React.Component {
+export default class MovieCard extends React.Component {
+  state={
+    genre: ''
+  }
+
+  fetchGenre = (genre) => {
+    axios.get(`https://nori-myflixdb.herokuapp.com/genre/${genre}`, {
+      headers: { Authorization: `Bearer ${localStorage.getItem("token")}`}
+    })
+    .then(response => {
+      console.log(response.data)
+      // Assign the result to the state
+    this.setState({
+      genre: response.data
+    });
+    //modal code
+    let str = "Genre: " + this.state.genre.Name +"\n"
+    + "Description: " + this.state.genre.Description;
+    alert(str)
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+   
+  }
+ 
+  fetchDirector = (director) => {
+    axios.get(`https://nori-myflixdb.herokuapp.com/director/${director}`, {
+      headers: { Authorization: `Bearer ${localStorage.getItem("token")}`}
+    })
+    .then(response => {
+      console.log(response.data)
+      // Assign the result to the state
+    this.setState({
+      director: response.data
+    });
+    //modal code
+    let str = "Director: " + this.state.director.Name +"\n"
+    + "Bio: " + this.state.director.Bio +"\n" 
+    + "Birth Year: " + this.state.director.Birth +"\n" 
+    + "Dead or Alive?: " + this.state.director.Death;
+    alert(str)
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+
+   }
+
+   onRemoveFavorite = (id) => {
+    const Username = localStorage.getItem('user');
+    const token = localStorage.getItem('token');
+
+    axios.delete(
+            `https://nori-myflixdb.herokuapp.com/users/${Username}/movies/${id}`,
+            {
+                headers: { Authorization: `Bearer ${token}` },
+            }
+        )
+        .then((response) => {
+            console.log(response);
+            alert("Movie removed");
+         })
+        .catch(function (error) {
+            console.log(error);
+        });
+};
+
+
   render() {
     const { movie, onMovieClick } = this.props;
     return (
-      <Card>
-      <Card.Body>
+      <CardGroup className ="movie">
+      <Card style={{width: '450px', height: '570px', overflow: 'hidden', marginBottom: '20px'}} >
+      <Card.Body className="movie">
       <Card.Title>
         <h4 style={{cursor: 'pointer'}} onClick={() => onMovieClick(movie)} className="movie-card">{movie.Title}</h4>
       </Card.Title>
       <br />
-      <img src={movie.ImagePath} width="250" height="250" ></img>
+      <Card.Img variant="top" src={movie.ImagePath} style={{width: "250px"}}/>
+      <b>Director:</b><a href="#" onClick={() => this.fetchDirector(movie.Director.Name)}>{movie.Director.Name}</a>
+      <br/>
+      <b>Genre:</b> <a href="#" onClick={() => this.fetchGenre(movie.Genre.Name)}>{movie.Genre.Name}</a>
+      <br/><br/>
+      {/* <p>{movie.Description}</p> */}
+      <a href="#" onClick={()=>this.onRemoveFavorite(movie._id)}>Remove from Favorties</a>
       </Card.Body> 
       </Card>
-     
+      </CardGroup>
     );
   }
 }
