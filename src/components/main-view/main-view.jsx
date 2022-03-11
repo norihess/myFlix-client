@@ -10,7 +10,8 @@ import { FavoritesModal, EditUserModal } from '../profile-view/profile-view';
 import { Form, Button, Container, Row, Col, Card, CardGroup, Nav } from 'react-bootstrap';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from '../others/Header';
-
+import {addMovies} from '../../actions/actions';
+import store from '../../store';
 
 export class MainView extends React.Component{
   constructor() {
@@ -24,6 +25,7 @@ export class MainView extends React.Component{
       favMovies: [],
     };
   }
+  
   componentDidMount() {
     let accessToken = localStorage.getItem('token');
     if (accessToken !== null) {
@@ -33,6 +35,7 @@ export class MainView extends React.Component{
       this.getMovies(accessToken);
     }
   }
+
   // componentDidMount(){
   //   axios.get('https://nori-myflixdb.herokuapp.com/movies')
   //     .then(response => {
@@ -57,8 +60,12 @@ export class MainView extends React.Component{
     })
     .then(response => {
       // Assign the result to the state
-      this.setState({
-        movies: response.data
+      // this.setState({
+      //   movies: response.data
+      // });
+      store.dispatch(addMovies(response.data) )
+       this.setState({
+        movies: store.getState()
       });
     })
     .catch(function (error) {
@@ -151,9 +158,9 @@ export class MainView extends React.Component{
   }
 
 	render() {
-    const { movies, selectedMovie, register, token, user} = this.state;
-    console.log(this.state)
-    
+    const { selectedMovie, register, token, user} = this.state;
+    //console.log(store.getState());
+    const movies = store.getState();
     return (<BrowserRouter>
       <Routes>
         <Route exact path="/" element={<LoginView onLoggedIn={(dt) => this.onLoggedIn(dt)} setRegister={this.setRegister} />} />
