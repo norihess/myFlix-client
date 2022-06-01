@@ -2,14 +2,12 @@
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
 }
-html, body, .app-container {
-  // background-color:#8b8b8b;
-}
-.card-body{
+
+.log{
   background: linear-gradient(to bottom right, rgb(75, 164, 248), rgb(194, 231, 252));
   margin-top: 20px;
 }
-.card{
+.reg{
   background: linear-gradient(to bottom right, rgb(75, 164, 248), rgb(194, 231, 252));
   padding:10px;
   margin-top: 5%;
@@ -31,6 +29,28 @@ font-size: 	1.3125em;
 .main-view{
   display: grid;
   grid-gap: 20px;
-  grid-template: auto / repeat(auto-fit, minmax(300px, 1fr));
-  
+  // grid-template: auto / repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.card-img-top{
+  max-height: 650px;
+  width: auto;
+  overflow: hidden;
+}
+// }
+// movie card
+// .mov-card{
+//   background: blue;
+// }
+// .card-body{
+//   background: red;
+// }
+.movie{
+  background: rgb(202, 219, 235);
+  // text-align: center;
+  // margin: 20px;
+}
+.nav {
+  height: 50px;
+  // background: blue;
 }
